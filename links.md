@@ -1,4 +1,10 @@
-# Random links aka TODO readlist
+---
+title: Links
+---
+
+# Random links
+
+### Readlist
 
 - http://projects.spring.io/spring-cloud/spring-cloud.html#_spring_cloud_security
 - http://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#template-resolvers
@@ -13,7 +19,7 @@
 - http://www.petrikainulainen.net/programming/spring-framework/creating-a-rest-api-with-spring-boot-and-mongodb/
 - http://vimeo.com/foss4g/videos
 
-# Libs/tools
+### Libs/tools
 
 - http://www.jsonschema2pojo.org
 - http://huddle.github.io/Resemble.js/
@@ -30,17 +36,17 @@
 - http://panamax.io/
 - https://gitter.im/
 
-# Homeautomation
+### Homeautomation
 
 - http://opennethome.org/
 - http://www.asennustuotteet.fi/catalog/19952/product/21235/1786RF-84_FIN1.html
 
-# Git 
+### Git 
 
 - http://scottchacon.com/2011/08/31/github-flow.html
 - https://guides.github.com/introduction/flow/index.html
 
-# Javascript/Frontend
+### Javascript/Frontend
 
 - https://www.youtube.com/channel/UC5AxzMQ2jF0oFAidaafuhZg/videos
 - http://koajs.com
