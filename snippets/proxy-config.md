@@ -47,6 +47,11 @@ To configure a proxy with host 'my.proxy.org' and port 8888. Some configs also f
     export http_proxy=http://my.proxy.org:8888/
     export https_proxy=http://my.proxy.org:8888/ 
 
+### Windows cmd
+
+    set http_proxy=http://my.proxy.org:8888
+    set https_proxy=http://my.proxy.org:8888
+
 ### Bower (Add keys to '.bowerrc' JSON file)
 
     {
