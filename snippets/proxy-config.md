@@ -66,5 +66,5 @@ To configure a proxy with host 'my.proxy.org' and port 8888. Some configs also f
 
 Run on commandline:
 
-  apm config set proxy "http://my.proxy.org:8888"
-  apm config set https_proxy "https://my.proxy.org:8888"
+    apm config set proxy "http://my.proxy.org:8888"
+    apm config set https_proxy "https://my.proxy.org:8888"
