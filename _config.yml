@@ -1,0 +1,14 @@
+
+# Your name, as you want it to appear underneath each post and in the footer
+author: Sami Mäkinen
+
+# Your email if you want it to be linked on the contact page
+author_email: zakarfin[at]gmail.com
+
+defaults:
+  -
+    scope:
+      path: ""
+#      type: "pages"
+    values:
+      layout: default

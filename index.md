@@ -1,7 +1,12 @@
 ---
 title: Index
+layout : default
+description : Index of zakarfin.github.io
 ---
-# ZakarFin@Github
+
+<div class="jumbotron">
+    <h1>ZakarFin@Github</h1>
+</div>
 
 - [Oskari developer meetup 12/2014](/oskari)
 - [Random snippets](/snippets)

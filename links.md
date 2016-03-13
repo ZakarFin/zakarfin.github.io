@@ -6,6 +6,7 @@ title: Links
 
 ### Readlist
 
+- https://github.com/swagger-api/swagger-core/wiki/Annotations
 - http://slidedeck.io/jhohertz/netflixoss-slides
 - https://github.com/aspyker/acmeair-netflix
 - https://www.youtube.com/watch?v=pMPsf9LI8kk&feature=youtu.be
