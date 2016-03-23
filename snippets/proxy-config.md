@@ -38,15 +38,22 @@ To configure a proxy with host 'my.proxy.org' and port 8888. Some configs also f
     npm config set proxy http://my.proxy.org:8888
     npm config set https-proxy https://my.proxy.org:8888
 
+Some node-modules install using git, so you might want to run the git configs as well
+
 ### Git (commandline)
 
     git config --global http.proxy http://my.proxy.org:8888
     git config --global https.proxy https://my.proxy.org:8888
 
+If SSH access is restricted, you might want to try these out (also helps with node-modules install):
+
+    git config --global url."https://".insteadOf git://
+    git config --global url."https://github.com/".insteadOf git@github.com
+
 ### Linux/Cygwin bash (commandline/.bash_profile)
 
     export http_proxy=http://my.proxy.org:8888/
-    export https_proxy=https://my.proxy.org:8888/ 
+    export https_proxy=https://my.proxy.org:8888/
 
 ### Windows cmd
 
