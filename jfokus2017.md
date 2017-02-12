@@ -24,7 +24,7 @@ These are the talks I saw and my memos/thoughts on them. I recommend watching at
 - Expert Java 8
 - Expect the Unexpected: How to Deal with Errors in Large Web Applications
 - Microservice communication and integration: what are my options?
-- Introduction to Machine Learning
+- Introduction to Machine Learning and/or Deep Learning on Java
 
 If scoping issue with "this" in Javascript is new to you, you might also enjoy:
 
