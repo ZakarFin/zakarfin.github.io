@@ -9,7 +9,7 @@ description : Memos/thoughts on JFokus 2017 talks
 
     JFokus is Sweden's largest developer conference with developers from all over the world (most from Sweden and Finland).
 
-    The schedule/talks can be found at [https://www.jfokus.se/jfokus/schedule.jsp](https://www.jfokus.se/jfokus/schedule.jsp). Videos will be up later (in March probably).
+    The schedule/talks can be found <a href="https://www.jfokus.se/jfokus/schedule.jsp" target="_blank">here</a>. Videos will be up later (in March probably).
 </div>
 
 These are the talks I saw and my memos/thoughts on them. I recommend watching at least these when the videos are available (most of the slides are already available on the site):
