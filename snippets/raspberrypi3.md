@@ -15,7 +15,7 @@ sudo diskutil eraseDisk FAT32 RASPBIAN MBRFormat /dev/disk2
 ```
 
 Where RASPBIAN is the name for the card (you can use any)
-and /dev/disk2 is the address for the disk. You can findout the address by running 
+and /dev/disk2 is the address for the disk. You can findout the address by running
 
 ```
 diskutil list
@@ -51,3 +51,43 @@ iw wlan0 set power_save off
 
 <http://www.jaredwolff.com/blog/get-started-with-bluetooth-low-energy/>
 
+## Installing a more recent node.js version
+
+Just followed the official instructions at https://nodejs.org/en/download/package-manager/
+
+```
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+## Flic.io
+
+Getting the code/binaries:
+```
+cd /opt
+git clone https://github.com/50ButtonsEach/fliclib-linux-hci.git
+```
+
+Systemd service script for Flic (/etc/systemd/system/flicd.service):
+https://github.com/50ButtonsEach/fliclib-linux-hci/issues/15
+
+```
+[Unit]
+Description=flicd Service
+After=bluetooth.service
+Requires=bluetooth.service
+
+[Service]
+TimeoutStartSec=0
+ExecStart=/opt/fliclib-linux-hci/bin/armv6l/flicd -f /opt/fliclib-linux-hci/flic.sqlite3 -s 0.0.0.0  -l /var/log/flicd.log -h hci0 -w
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Start service on boot:
+```
+sudo systemctl enable flicd
+```
