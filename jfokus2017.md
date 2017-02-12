@@ -7,7 +7,7 @@ description : Memos/thoughts on JFokus 2017 talks
 <div class="jumbotron">
     <h1>JFokus 6-8 February 2017</h1>
 
-    JFokus is Sweden's largest developer conference with developers from all over the world (most from Sweden and Finland).
+    JFokus is Sweden's largest developer conference with developers from all over the world (most from Sweden and Finland though).
 
     The schedule/talks/slides can be found <a href="https://www.jfokus.se/jfokus/schedule.jsp" target="_blank">here</a>. Videos will be up later (in March probably).
 </div>
@@ -31,15 +31,16 @@ If scoping issue with "this" in Javascript is new to you, you might also enjoy:
 Mark Reinhold, Oracle
 
 - Introduction to Java 9 module system
-- A lot of work on doing language changes with backwards compatibility
+- Doing language changes with backwards compatibility == a lot of work
 - The core of Java has been separated to small modules
-- Previously it resembled this: http://img.thedailywtf.com/images/201101/DependencyGraph.png (pic from http://thedailywtf.com/articles/The-Enterprise-Dependency)
+- Previously it resembled this: <img src="http://img.thedailywtf.com/images/201101/DependencyGraph.png" /> (pic from <a href="http://thedailywtf.com/articles/The-Enterprise-Dependency">The Daily WTF</a>)
 - Now only the base-package is mandatory (like everything extending java.lang.Object)
 - Classpath is problematic and modules are here to help.
 - Modules defined with module-info.java (much like package-info.java)
 - Modules can export and import functionality (much like OSGI, but syntax is more like ES6 import/export statements in Javascript - very clean looking)
 - Module-infos can be added for future proofing even if they are not used.
 - There will be a tool in the JDK for packaging the app-specific (streamlined) JRE with an application.
+- Left me wondering how one does something like Class.forName("foo.Bar") with modules (functionally something like optional overrides)
 
 ### Expert Java 8
 Nicolai Parlog, CodeFX
@@ -48,10 +49,11 @@ Nicolai Parlog, CodeFX
 - Throwing an exception will result in stopping the stream from processing
 - Lot's of ways of doing this like "Hiding the bomb" in a stream
 - To pass information about the exception AND go on processing the stream you should use something like:
+´´´
+public Try<String,IOException> readLine();
+´´´
 
-    public Try<String,IOException> readLine();
-
-- Needs a lib like http://www.javaslang.io
+- Needs a lib like [http://www.javaslang.io](http://www.javaslang.io)
 - Optional-value - lot's of opinions in the community whether to use optional as return types/parameters/at all.
 
 ### Turbo Charge CPU Utilization in Fork/Join Using the ManagedBlocker
@@ -75,7 +77,7 @@ Mats Bryntse, Bryntum
 
 - Detecting and logging errors in Javascript at runtime
 - You can even produce a video of the bug using DOM MutationObserver
-- https://therootcause.io
+- [https://therootcause.io](https://therootcause.io)
 
 ### JavaScript's Most Wanted
 Todd Gardner, TrackJS
@@ -83,7 +85,7 @@ Todd Gardner, TrackJS
 - Introduced the most common types of errors in Javascript programs
 - scope of "this", "cannot call function xyz of undefined" etc.
 - Kind of basic Javascript
-- https://trackjs.com
+- [https://trackjs.com](https://trackjs.com)
 
 ### Java 9 - Beyond Contention!
 Monica Beckwith, Code Karam LLC
@@ -92,8 +94,7 @@ Monica Beckwith, Code Karam LLC
 - How the performance has improved from Java 8 to 9 when using the synchronized keyword
 - Multiple threads competing to access synchronized resource - "contested lock"
 - "Make sure you are measuring the right thing"
-- Used the Oracle Developer Studio Performance Tools for analyzing
-- http://www.oracle.com/technetwork/articles/servers-storage-dev/studio-perf-tools-2293552.html
+- Used the [http://www.oracle.com/technetwork/articles/servers-storage-dev/studio-perf-tools-2293552.html](Oracle Developer Studio Performance Tools) for analyzing
 - "just look at the assembly code, it's really easy"
 
 ## Wednesday
@@ -122,7 +123,7 @@ Katherine Stanley, IBM
   - sync/async messaging
   - Being a good API consumer/producer
   - versioning: nobody gets it right the first time
-- Gameon "practicing with a game - how to handle different scenarios"
+- [https://gameontext.org](Game On!) "practicing how to handle different scenarios"
 
 ### Introduction to Machine Learning
 James Ward, Salesforce.com
