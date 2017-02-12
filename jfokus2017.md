@@ -9,10 +9,11 @@ description : Memos/thoughts on JFokus 2017 talks
 
     JFokus is Sweden's largest developer conference with developers from all over the world (most from Sweden and Finland).
 
-    The schedule/talks can be found <a href="https://www.jfokus.se/jfokus/schedule.jsp" target="_blank">here</a>. Videos will be up later (in March probably).
+    The schedule/talks/slides can be found <a href="https://www.jfokus.se/jfokus/schedule.jsp" target="_blank">here</a>. Videos will be up later (in March probably).
 </div>
 
 These are the talks I saw and my memos/thoughts on them. I recommend watching at least these when the videos are available (most of the slides are already available on the site):
+
 - The DevOps disaster: 15 ways to fail at DevOps
 - Java 9: Make Way for Modules!
 - Expert Java 8
@@ -21,6 +22,7 @@ These are the talks I saw and my memos/thoughts on them. I recommend watching at
 - Introduction to Machine Learning
 
 If scoping issue with "this" in Javascript is new to you, you might also enjoy:
+
 - JavaScript's Most Wanted
 
 ## Tuesday
@@ -33,7 +35,7 @@ Mark Reinhold, Oracle
 - The core of Java has been separated to small modules
 - Previously it resembled this: http://img.thedailywtf.com/images/201101/DependencyGraph.png (pic from http://thedailywtf.com/articles/The-Enterprise-Dependency)
 - Now only the base-package is mandatory (like everything extending java.lang.Object)
-- Classpath is problematic. Modules are here to help.
+- Classpath is problematic and modules are here to help.
 - Modules defined with module-info.java (much like package-info.java)
 - Modules can export and import functionality (much like OSGI, but syntax is more like ES6 import/export statements in Javascript - very clean looking)
 - Module-infos can be added for future proofing even if they are not used.
@@ -137,7 +139,7 @@ Andres Almiray, Canoo Engineering AG
 ### The joy and misery of connecting a car to the internet
 Niklas Gawell, Springworks AB
 
-- There's a lot of inputs and outputs in cars.
+- There's a lot of inputs and outputs in cars when you start to think about it
 - OBD-port for reading the car
 - "standard", but only a small percentage of common functionalities are implemented by manufacturers
 - Challenge: how to identify which car we are using - what are the implemented functionalities that we can use?
