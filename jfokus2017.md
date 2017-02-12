@@ -96,7 +96,7 @@ Todd Gardner, TrackJS
 ### Java 9 - Beyond Contention!
 Monica Beckwith, Code Karam LLC
 
-- Really hard-code performance analysis overview
+- Really hardcore performance analysis overview
 - How the performance has improved from Java 8 to 9 when using the synchronized keyword
 - Multiple threads competing to access synchronized resource - "contested lock"
 - "Make sure you are measuring the right thing"
