@@ -53,9 +53,11 @@ title: Links
 
 - http://scottchacon.com/2011/08/31/github-flow.html
 - https://guides.github.com/introduction/flow/index.html
+- https://www.youtube.com/watch?v=mdvlu_R8EWE
 
 ### Javascript/Frontend
 
+- http://es6-features.org/#Constants
 - https://github.com/rackt/react-router
 - http://fluxible.io
 - https://www.youtube.com/channel/UC5AxzMQ2jF0oFAidaafuhZg/videos
@@ -70,4 +72,6 @@ title: Links
 - https://wrapbootstrap.com/
 - http://facebook.github.io/flux/docs/overview.html
 
+### SQL
 
+- http://www.slideshare.net/LukasEder1/10-sql-tricks-that-you-didnt-think-were-possible
