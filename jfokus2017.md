@@ -3,7 +3,12 @@ title: "JFokus 2017"
 layout : default
 description : Memos/thoughts on JFokus 2017 talks
 ---
-
+<style type="text/css">
+img {
+    max-width : 80&;
+    display: block;
+}
+</style>
 <div class="jumbotron">
     <h1>JFokus 6-8 February 2017</h1>
 
@@ -33,8 +38,8 @@ Mark Reinhold, Oracle
 - Introduction to Java 9 module system
 - Doing language changes with backwards compatibility == a lot of work
 - The core of Java has been separated to small modules
-- Previously it resembled this: <img src="http://img.thedailywtf.com/images/201101/DependencyGraph.png" /> (pic from <a href="http://thedailywtf.com/articles/The-Enterprise-Dependency">The Daily WTF</a>)
-- Now only the base-package is mandatory (like everything extending java.lang.Object)
+- Previously dependency graph resembled this: <img src="http://img.thedailywtf.com/images/201101/DependencyGraph.png" /> (pic from <a href="http://thedailywtf.com/articles/The-Enterprise-Dependency">The Daily WTF</a>)
+- Now only the base-package is mandatory (kind of like everything extending java.lang.Object)
 - Classpath is problematic and modules are here to help.
 - Modules defined with module-info.java (much like package-info.java)
 - Modules can export and import functionality (much like OSGI, but syntax is more like ES6 import/export statements in Javascript - very clean looking)
@@ -48,10 +53,11 @@ Nicolai Parlog, CodeFX
 - How to handle exceptions with Streams
 - Throwing an exception will result in stopping the stream from processing
 - Lot's of ways of doing this like "Hiding the bomb" in a stream
-- To pass information about the exception AND go on processing the stream you should use something like:
-´´´
+- To pass information about the possible exception AND go on processing the stream you should use something like:
+
+<pre>
 public Try<String,IOException> readLine();
-´´´
+</pre>
 
 - Needs a lib like [http://www.javaslang.io](http://www.javaslang.io)
 - Optional-value - lot's of opinions in the community whether to use optional as return types/parameters/at all.
