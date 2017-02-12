@@ -5,7 +5,7 @@ description : Memos/thoughts on JFokus 2017 talks
 ---
 <style type="text/css">
 img {
-    max-width : 80&;
+    max-width : 80%;
     display: block;
 }
 </style>
@@ -53,7 +53,7 @@ Nicolai Parlog, CodeFX
 - How to handle exceptions with Streams
 - Throwing an exception will result in stopping the stream from processing
 - Lot's of ways of doing this like "Hiding the bomb" in a stream
-- To pass information about the possible exception AND go on processing the stream you should use something like:
+- To pass information about the possible exception AND go on processing the stream you should use something like Try to wrap the result in an Optional'ish way:
 
 <pre>
 public Try<String,IOException> readLine();
@@ -100,7 +100,7 @@ Monica Beckwith, Code Karam LLC
 - How the performance has improved from Java 8 to 9 when using the synchronized keyword
 - Multiple threads competing to access synchronized resource - "contested lock"
 - "Make sure you are measuring the right thing"
-- Used the [http://www.oracle.com/technetwork/articles/servers-storage-dev/studio-perf-tools-2293552.html](Oracle Developer Studio Performance Tools) for analyzing
+- Used the [Oracle Developer Studio Performance Tools](http://www.oracle.com/technetwork/articles/servers-storage-dev/studio-perf-tools-2293552.html) for analyzing
 - "just look at the assembly code, it's really easy"
 
 ## Wednesday
@@ -129,7 +129,7 @@ Katherine Stanley, IBM
   - sync/async messaging
   - Being a good API consumer/producer
   - versioning: nobody gets it right the first time
-- [https://gameontext.org](Game On!) "practicing how to handle different scenarios"
+- [Game On!](https://gameontext.org) "practicing how to handle different scenarios"
 
 ### Introduction to Machine Learning
 James Ward, Salesforce.com
