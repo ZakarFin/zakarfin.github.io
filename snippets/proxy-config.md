@@ -60,6 +60,16 @@ If SSH access is restricted, you might want to try these out (also helps with no
     set http_proxy=http://my.proxy.org:8888
     set https_proxy=https://my.proxy.org:8888
 
+### wget
+
+HTTP:
+
+    wget -e use_proxy=yes -e http_proxy=my.proxy.org:8888 [file to download]
+
+HTTPS:
+
+    wget -e use_proxy=yes -e https_proxy=my.proxy.org:8888 [file to download]
+
 ### Bower (Add keys to '.bowerrc' JSON file)
 
     {
