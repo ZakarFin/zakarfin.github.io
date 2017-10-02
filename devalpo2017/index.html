@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>devALPO 6.10.2017</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <style>
+        section img {
+            max-width:55%;
+            max-height:55%;
+        }
+        </style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <h1 style="display:inline-block;">Oskari-kehittämisprosessi</h1>
+                    <br />
+                    <h4 style="display:inline-block;">Sami Mäkinen</h4>
+                    <h6>devALPO 6.10.2017</h6>
+                </section>
+				<section>
+                    <section>
+                        <h2>Kevät 2017</h2>
+                        <img src="img/pull_request_all_the_things.jpg" style="width:50%"/>
+                    </section>
+                    <section>
+                            <h4>Verrattuna aiemmin</h4>
+                            <i>(== committien puskeminen "tuotteeseen")</i>
+                            <p>
+                        <ul>
+                            <li>tekeminen näkyvämpää</li>
+                            <li>luontainen review muutoksille</li>
+                            <li>valmiimpia kokonaisuuksia</li>
+                        </ul></p>
+                    </section>
+                    <section>
+                        <img src="img/falloutvaultboythumbsup.jpg" style="width:50%"/>
+                            
+                        <h4>mutta aiheuttaa myös lisää työtä</h4>
+                        <ul>
+                            <li>vastuu koodista</li>
+                            <!--
+                                siirtyykö koodin toimivuudesta vastuu katselmoijalle 
+                                joka hyväksyy koodin mukaan vai onko se edelleen kehittäjällä
+                                -->
+                            <li>testausta varten build-scriptit ja ympäristöt</li>
+                            <!-- custom build oskari-serveristä sovelluksen ympäristöön 
+                                ”jos tämä koodi olisi Oskarissa niin miten sitä voitaisiin käyttää meidän sovelluksessa” -->
+                        </ul>
+                    </section>
+                    <section>
+                        <img src="img/85files.jpg" style="float:right;max-height:80%"/>
+                        <h2>Ulkopuoliset kontribuutiot</h2>
+                        <ol>
+                            <li>Ulkopuolista kehitystä</li>
+                            <li>Toimitus integrointiin</li>
+                            <li>???</li>
+                            <li>Valmis [x]</li>
+                        </ol>
+
+<!--
+   - ulkopuolisia kontribuutioita ei tule vieläkään juuri yhtään. Ne mitä kehitetään ”Oskariin” tehdäänkin enimmäkseen 
+   yksittäisen organisaation instanssiin eikä yleiseksi. Tähän toivottavasti saadaan Oskari-verkoston kautta
+    sopimuspohjat ja ohjeistusta tilaamiseen: mitä muutoksia/lisäyksiä tehdään Oskariin ja mitä kehitetään
+     organisaatin sovellukseen. Vaatii myös tekijältä valppautta olisiko muutos parempi yleiseen komponenttiin
+      vai tehdäänkö sovelluskohtainen ratkaisu. Esim ui-komponenttiin uusi toiminto vai tunkataan DOMin kautta 
+      joku sovelluskohtainen hack
+   - tai jos tulee niin vuoden koodit yhdessä pull requestissa jolloin review ja mergeeminen on hankalampaa.
+    Lisäksi korjauksienkin tekeminen on hankalampaa ja jos työ on jo ”luovutettu asiakkaalle” niin herää kysymys
+     kuka maksaa muutosten tekemisestä ja miksi jollei sopimuksessa ole mitään mihin vedota
+-->
+                    </section>
+
+                    <section>
+                            <h2>GL HF</h2>
+                            <img src="img/dump.gif" style="width:80%"/>
+                        </section>
+                        <section>
+                            <h2>Integrointi</h2>
+                            <img src="img/assembly.gif" style="width:80%"/>
+                        </section>
+                        <section>
+                            <img src="img/something_here_doesnt_quite_fit_01.jpg" style="width:80%"/>
+                        </section>
+                        <section>
+                            <img src="img/one-does-not-pull-request.jpg" style="width:80%"/>
+                        </section>
+                    </section>
+                </section>
+				<section>
+                    <h2>"Oppimiskokemus"</h2>
+                    <img src="img/noo.gif" style="width:50%"/>
+                </section>
+				<section>
+                    <section>
+                        <h2>OSGeo</h2>
+                        <!--
+- alunperin mentor oli sitä mieltä että foss4g bostoniin mennessä Oskari olisi osgeo-projekti
+- sen jälkeen mentoriin ei saatu yhteyttä ennenkä bostonin jälkeen
+- kiirettä pidellyt siis
+- käytännössä työ ei ole edennyt paitsi mailing list on nyt olemassa
+- vielä pitäisi oppia käyttään sitä ja niin että sinne joku muukin kuin esim minä kirjoittaisin
+- hankalaa linjanvetoa, koska vakiintunut Slack on niin paljon helpompi tapa käydä läpi kysymyksiä jne se vaan ei ole samalla tavalla avoin (vaatii kutsun)
+- osgeo live - tilaa rajatusti ja Oskari on websovelluksena luonteeltaan vähän erilainen kuin vaikka qgis jonka jokainen asentaa omalle koneelle. Toisaalta geoserver on vastaavassa asemassa.
+                        -->
+                    </section>
+                </section>
+                <!--
+
+Tulevaisuus
+- typescript
+- vue.js
+- nyt oskarin frontin voi vain ladata ja alkaa muokkaamaan/avata selaimessa - nämä tulevat vaatimaan buildin ennenkä koodi on frontillekaan käytettävissä
+- suuri haaste myös taaksepäin yhteensopivuudesta ja mitä on Oskari ”coressa”/minkä kirjaston voi olettaa olevan tuettu ilman että ladataan koko maailma (monta eri kirjastoa) mukaan selaimeen ts. Onko järkeä yrittääkään tällaisten käyttöönotossa tukea kaikkea vanhaa koodia vai voidaanko todeta, että tästä versiossa vanhoja sovelluskohtaisia toiminnallisuuksia joutuu koodaamaan ainakin osittain uusiksi 
+”Backwards compatibility means we get to keep all our old mistakes”
+                -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
