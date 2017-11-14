@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Oskari release</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <style>
+        section img {
+            max-width:55%;
+            max-height:55%;
+        }
+        .bg-white {
+            background-color: white !important;
+        }
+        .glow {
+            box-shadow: 0px 0px 25px #fff !important;
+        }
+        </style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+                    <h1 style="display:inline-block;">Releasevaiheet</h1>
+                    <br />
+                    <h4 style="display:inline-block;">Oskari/paikkatietoikkuna</h4>
+                </section>
+
+				<section>
+                    <section>
+                        <h2>Codefreeze</h2>
+                        <h4>1) Avataan release branch</h4>
+                        <pre><code  data-trim>
+                            git checkout develop
+                            git pull
+                            git checkout -b release/x.y.z
+                        </code></pre>
+                    </section>
+                    <section>
+                        <img src="img/api-docs.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                </section>
+<!--
+    Yksinkertaisimmillaan http://oskari.org/documentation/development/oskari-git-process "Creating releases" otsikon alta tekniset Git-säädöt. Tämän päälle Jenkins jobien ajaminen. Ehkä olisi selkeämpi tehdä joku slideshow esitys tästä kuin confluence-sivu.
+
+Oskari 
+
+1) Avataan release branch 
+2) testataan: 
+a) esimerkkisovelluksella 
+b) rakennetaan custom-build server-extensionin kanssa testaamiseksi (esim paikkis, asdi. elf) huom! pom.xml oskari-serverissä ja server-extensionin oskari.version pitää täsmätä. Huom2! ÄLÄ puske release-branchistä maven artifakteja maven repositoryyn. Muuten clientit eivät osaa päivittää, koska release-branchissä käytetään "julkaistua versiota" 
+3) Release branch kiinni 
+4) Git tag 
+5) Valmis
+
+Oskari releasen jälkeen: 
+
+- uuden jetty-paketin rakentaminen 
+- maven repositoryyn vieminen 
+- oskari.orgiin api-dokkarit 
+- servers.gitiin päivitys oskaritu01 alle oskari.client.version 
+- demo.oskari.orgiin server (mukaan menee konffit) ja fronttibuildit
+
+Server-extension release: 
+
+1) Avaa release-branch 
+2) Päivitä pom.xml:ssä oskari.version uusimpaan 
+3) Buildaa testiympäristöön 
+4) Testaa 
+5) Korjaa mahdolliset bugit 
+6) Release branch kiinni ja merget masteriin + developiin 
+7) Buildaa testiympäristöön 
+8) Testaa 
+9) Buildaa tuotantoympäristöön järjestyksessä frontti, konffit, server 
+10) Testaa
+
+Tarvitaanko näiden eteen jotain?
+
+- apidokkarien "oletusversio"
+- rpc-esimerkin "expected version"
+-->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
