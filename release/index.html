@@ -62,7 +62,7 @@
                         </code></pre>
                         <pre><code  data-trim>
                             ...
-                            VERSION: '1.45.0',
+                            VERSION: 'x.y.z',
                             ...
                         </code></pre>
 
@@ -84,7 +84,7 @@
                         </code></pre>
                         <pre><code  data-trim>
                             # Commit the changes to Git
-                            git add .
+                            git add pom.xml */pom.xml geoserver-ext/*/pom.xml
                             git commit -m 'Bump version'
                         </code></pre>
                     </section>
@@ -94,6 +94,54 @@
                             git push [remote kuten "origin"] release/x.y.z
                         </code></pre>
                         Jotta release-branchiin voidaan kohdistaa pull requesteja ja sitä voidaan käyttää Jenkinsissä pohjana server-extensionin rakentamiselle.
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Builds</h2>
+                    </section>
+                    <section>
+                        <img src="img/oskari.org.front.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                    <section>
+                        <img src="img/demo.oskari.org.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                    <section>
+                        <img src="img/pti-config.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                    <section>
+                        <img src="img/pti-front.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                    <section>
+                        <img src="img/pti-server.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Testausta ja korjauksia</h2>
+                        <h4>Kaikki korjaukset release-branchiin</h4>
+                        <ul>
+                        <li>Tehdään pull requesteina normaalisti</li>
+                        <li>developin sijaan branchataan release/x.y.z</li>
+                        <pre><code  data-trim>
+                            git checkout -b fix/x.y.z release/x.y.z
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Release merge</h2>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Release jakoon</h2>
+                    </section>
+                    <section>
+                        <img src="img/maven-repository.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                    <section>
+                        <img src="img/jetty-packager.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
                         <img src="img/api-docs.png" class="bg-white glow" style="width:80%" />
