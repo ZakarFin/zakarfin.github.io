@@ -101,19 +101,72 @@
                         <h2>Builds</h2>
                     </section>
                     <section>
+                        <h4>Versionumero server-konfiguraatiossa</h4>
+                        Muokataan oskari-ext.properties tiedostoissa olevia versioita
+                        <pre><code  data-trim>
+                            oskari.client.version=dist/x.y.z
+                        </code></pre>
+                        <p>Tiedostot servers.git:ssä palvelimittain</p>
+                    </section>
+                    <section>
                         <img src="img/oskari.org.front.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
-                        <img src="img/demo.oskari.org.png" class="bg-white glow" style="width:80%" />
+                        <h4>Vaihda Jenkinsin oletusarvot</h4>
+                        <p>demo.oskari.org frontend</p>
+                        <ul>
+                            <li>branch = release/x.y.z</li>
+                            <li>version = x.y.z</li>
+                        </ul>
+                        <p>Olennaista: oskari-ext.properties versio pitää täsmätä tässä annettavaan versionumeroon</p>
                     </section>
                     <section>
+                        <h4>Vaihda Jenkinsin oletusarvot</h4>
+                        <p>demo.oskari.org server</p>
+                        <img src="img/demo.oskari.org.png" class="bg-white glow" style="width:80%" />
+                        <ul>
+                            <li>branch = release/x.y.z</li>
+                        </ul>
+                        <p><b>Huom!</b> Konfiguraatio tulee servers.git:stä saman nimisestä branchistä</p>
+                    </section>
+                    <section>
+                        <h2>Paikkatietoikkuna</h2>
+                    </section>
+                    <section>
+                        <h4>Konfiguraatiot voi buildata developistakin</h4>
+                        <p>Olennaista: oskari-ext.properties versiopäivitys on tehty ko. branchiin</p>
                         <img src="img/pti-config.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
                         <img src="img/pti-front.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
+                        <h4>Vaihda Jenkinsin oletusarvot</h4>
+                        <p>paikkatietoikkuna frontend</p>
+                        <ul>
+                            <li>branch = release/x.y.z</li>
+                            <li>version = x.y.z</li>
+                        </ul>
+                        <p>Olennaista: oskari-ext.properties versio pitää täsmätä tässä annettavaan versionumeroon</p>
+                    </section>
+                    <section>
                         <img src="img/pti-server.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                    <section>
+                        <h4>Vaihda Jenkinsin oletusarvot</h4>
+                        <p>paikkatietoikkuna server</p>
+                        <pre><code  data-trim>
+                            branch: develop (tai pti;n release/jot.ai.n)
+                            repository: https://github.com/oskariorg/oskari-server
+                            oskari_branch: release/x.y.z
+                        </code></pre>
+                        <p><b>Huom!</b> 
+                        <ul>
+                            <li>Buildissä kestää pidempään, koska pohjana käytetään custom-buildiä oskari-server:stä</li>
+                            <li>Varmista, että pti branchissä on sama oskari.version, kuin oskari-serverin pom.xml:ssä</li>
+                        </ul>
+                    </p>
+                    </section>
                     </section>
                 </section>
                 <section>
@@ -121,8 +174,9 @@
                         <h2>Testausta ja korjauksia</h2>
                         <h4>Kaikki korjaukset release-branchiin</h4>
                         <ul>
-                        <li>Tehdään pull requesteina normaalisti</li>
-                        <li>developin sijaan branchataan release/x.y.z</li>
+                            <li>Tehdään pull requesteina normaalisti</li>
+                            <li>developin sijaan branchataan release/x.y.z</li>
+                        </ul>
                         <pre><code  data-trim>
                             git checkout -b fix/x.y.z release/x.y.z
                         </code></pre>
