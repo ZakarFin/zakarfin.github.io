@@ -106,64 +106,77 @@
                         <pre><code  data-trim>
                             oskari.client.version=dist/x.y.z
                         </code></pre>
-                        <p>Tiedostot servers.git:ssä palvelimittain</p>
+                        <p>Tiedostot servers.git:ssä palvelimittain. Tämän perusteella palvelin käyttää tiettyä frontend versiota.</p>
                     </section>
                     <section>
+                        <h4>demo.oskari.org frontend</h4>
                         <img src="img/oskari.org.front.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
-                        <h4>Vaihda Jenkinsin oletusarvot</h4>
-                        <p>demo.oskari.org frontend</p>
-                        <ul>
-                            <li>branch = release/x.y.z</li>
-                            <li>version = x.y.z</li>
-                        </ul>
+                        <h4>demo.oskari.org frontend</h4>
+                        <p>Vaihda Jenkinsin oletusarvot</p>
+                        <pre><code  data-trim>
+                            branch: release/x.y.z
+                            version: x.y.z
+                        </code></pre>
                         <p>Olennaista: oskari-ext.properties versio pitää täsmätä tässä annettavaan versionumeroon</p>
                     </section>
                     <section>
-                        <h4>Vaihda Jenkinsin oletusarvot</h4>
-                        <p>demo.oskari.org server</p>
+                        <h4>demo.oskari.org server</h4>
+                        <p>Vaihda Jenkinsin oletusarvot</p>
                         <img src="img/demo.oskari.org.png" class="bg-white glow" style="width:80%" />
+                    </section>
+                    <section>
+                        <h4>demo.oskari.org server</h4>
+                        <p>Vaihda Jenkinsin oletusarvot</p>
+                        <pre><code  data-trim>
+                            branch: release/x.y.z
+                        </code></pre>
+                        <p><b>Huom!</b> 
                         <ul>
-                            <li>branch = release/x.y.z</li>
+                            <li>Konfiguraatio tulee servers.git:stä saman nimisestä branchistä</li>
+                            <li>Boottaa jettyt palvelimella</li>
                         </ul>
-                        <p><b>Huom!</b> Konfiguraatio tulee servers.git:stä saman nimisestä branchistä</p>
+                        </p>
                     </section>
                     <section>
                         <h2>Paikkatietoikkuna</h2>
                     </section>
                     <section>
                         <h4>Konfiguraatiot voi buildata developistakin</h4>
-                        <p>Olennaista: oskari-ext.properties versiopäivitys on tehty ko. branchiin</p>
                         <img src="img/pti-config.png" class="bg-white glow" style="width:80%" />
+                        <p>Olennaista: oskari-ext.properties versiopäivitys on tehty ko. branchiin</p>
                     </section>
                     <section>
+                        <h4>paikkatietoikkuna frontend</h4>
                         <img src="img/pti-front.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
-                        <h4>Vaihda Jenkinsin oletusarvot</h4>
-                        <p>paikkatietoikkuna frontend</p>
-                        <ul>
-                            <li>branch = release/x.y.z</li>
-                            <li>version = x.y.z</li>
-                        </ul>
+                        <h4>paikkatietoikkuna frontend</h4>
+                        <p>Vaihda Jenkinsin oletusarvot</p>
+                        <pre><code  data-trim>
+                            branch: release/x.y.z
+                            version: x.y.z
+                        </code></pre>
                         <p>Olennaista: oskari-ext.properties versio pitää täsmätä tässä annettavaan versionumeroon</p>
                     </section>
                     <section>
+                        <h4>paikkatietoikkuna server</h4>
                         <img src="img/pti-server.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
-                        <h4>Vaihda Jenkinsin oletusarvot</h4>
-                        <p>paikkatietoikkuna server</p>
+                        <h4>paikkatietoikkuna server</h4>
+                        <p>Vaihda Jenkinsin oletusarvot</p>
                         <pre><code  data-trim>
                             branch: develop (tai pti;n release/jot.ai.n)
                             repository: https://github.com/oskariorg/oskari-server
                             oskari_branch: release/x.y.z
+                            restart: true
                         </code></pre>
                         <p><b>Huom!</b> 
                         <ul>
                             <li>Buildissä kestää pidempään, koska pohjana käytetään custom-buildiä oskari-server:stä</li>
-                            <li>Varmista, että pti branchissä on sama oskari.version, kuin oskari-serverin pom.xml:ssä</li>
+                            <li>Varmista! PTI-branchissä on sama oskari.version kuin oskari-serverin pom.xml:ssä</li>
                         </ul>
                     </p>
                     </section>
@@ -184,7 +197,7 @@
                 </section>
                 <section>
                     <section>
-                        <h2>Release merge</h2>
+                        <h2>Release merge master-branchiin</h2>
                     </section>
                 </section>
                 <section>
@@ -192,13 +205,23 @@
                         <h2>Release jakoon</h2>
                     </section>
                     <section>
+                        <h4>Uusi versio Maven repositoryyn</h4>
                         <img src="img/maven-repository.png" class="bg-white glow" style="width:80%" />
+                        <pre><code  data-trim>
+                            branch: master
+                        </code></pre>
                     </section>
                     <section>
+                        <h4>Uusi Jetty-paketti oskari.org/download:iin</h4>
                         <img src="img/jetty-packager.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
+                        <h4>Uusi API-dokumentaatio oskari.org/api:iin</h4>
                         <img src="img/api-docs.png" class="bg-white glow" style="width:80%" />
+                        <pre><code  data-trim>
+                            version: x.y.z
+                            branch: master
+                        </code></pre>
                     </section>
                 </section>
 <!--
