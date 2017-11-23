@@ -210,7 +210,9 @@
                             <li>developin sijaan branchataan release/x.y.z</li>
                         </ul>
                         <pre><code  data-trim>
-                            git checkout -b fix/x.y.z release/x.y.z
+                            git checkout release/x.y.z
+                            git pull github release/x.y.z
+                            git checkout -b fix/jotain release/x.y.z
                         </code></pre>
                     </section>
                 </section>
