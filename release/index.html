@@ -41,18 +41,34 @@
                     <br />
                     <h4 style="display:inline-block;">Oskari/paikkatietoikkuna</h4>
                 </section>
+                <section>
+                    <section>
+                        <h2>Valmistelut</h2>
+                        <p>Lisätään omalla koneella viralliset repositoryt remoteksi nimellä "github"</p>
+                        <h4>Frontend</h4>
+                        <pre><code  data-trim>
+                            cd oskari-frontend
+                            git remote add github https://github.com/oskariorg/oskari-frontend.git
+                        </code></pre>
+                        <h4>Server</h4>
+                        <pre><code  data-trim>
+                            cd oskari-server
+                            git remote add github https://github.com/oskariorg/oskari-server.git
+                        </code></pre>
 
+                    </section>
+                </section>
                 <section>
                     <section>
                         <h2>Codefreeze</h2>
                         <h4>1) Avataan release branch (sekä front että server)</h4>
+                        Jotta voidaan keskittyä siitä löytyvien bugien korjaamiseen.
                         <pre><code  data-trim>
                             git checkout develop
-                            git pull
+                            git pull github develop
                             git checkout -b release/x.y.z
                         </code></pre>
-                        Jotta voidaan keskittyä siitä löytyvien bugien korjaamiseen.
-                        Kaikki muu kehitys tämän jälkeen menee seuraavaan releaseen ja develop-branchiin.
+                        Kaikki muu kehitys tämän jälkeen menee develop-branchiin eikä enää nyt valmisteltavaan releaseen.
                     </section>
                     <section>
                         <h4>2) Nostetaan versionumero Frontend</h4>
@@ -90,10 +106,12 @@
                     </section>
                     <section>
                         <h4>4) Julkaistaan release branch (sekä front että server)</h4>
+                        <p>Jotta release-branchiin voidaan kohdistaa pull requesteja ja sitä voidaan käyttää Jenkinsissä pohjana buildeille.</p>
                         <pre><code  data-trim>
-                            git push [remote kuten "origin"] release/x.y.z
+                            git push github release/x.y.z
                         </code></pre>
-                        Jotta release-branchiin voidaan kohdistaa pull requesteja ja sitä voidaan käyttää Jenkinsissä pohjana server-extensionin rakentamiselle.
+
+                        <p>Olennaista: remote pitää viittaa viralliseen GitHub-repositoryyn eikä omaan forkkiin</p>
                     </section>
                 </section>
                 <section>
@@ -198,6 +216,52 @@
                 <section>
                     <section>
                         <h2>Release merge master-branchiin</h2>
+                    </section>
+                    <section>
+                        <h4>Release -> master</h4>
+                        <p>Viedään koodi master-branchiin "stablena"</p>
+                        <pre><code  data-trim>
+                            git checkout release/x.y.z
+                            git pull github release/x.y.z
+                            git checkout master
+                            git pull github master
+                            git merge release/x.y.z
+                        </code></pre>
+                        <p>Olennaista: remote pitää viittaa viralliseen GitHub-repositoryyn eikä omaan forkkiin</p>
+                    </section>
+                    <section>
+                        <h4>Git tag</h4>
+                        <p>Lisätään git tag, jotta version tilanne on helppo löytää myöhemmin</p>
+                        <pre><code  data-trim>
+                            git checkout master
+                            git tag -a x.y.z -m "Release x.y.z"
+                            git push github master
+                            git push github --tags
+                        </code></pre>
+                        <p>Olennaista: remote pitää viittaa viralliseen GitHub-repositoryyn eikä omaan forkkiin</p>
+                    </section>
+                    <section>
+                        <h4>Master -> develop</h4>
+                        <p>Mergetään codefreezen aikana tulleet korjaukset takaisin myös develop-branchiin</p>
+                        <pre><code  data-trim>
+                            git checkout develop
+                            git pull github develop
+                            git merge master
+                            # fix possible merging of conflicts
+                            git push github develop
+                        </code></pre>
+                        <p>Olennaista: remote pitää viittaa viralliseen GitHub-repositoryyn eikä omaan forkkiin</p>
+                    </section>
+                    <section>
+                        <h4>Cleanup</h4>
+                        <p>Poistetaan release-branch omalta koneelta ja GitHubista</p>
+                        <pre><code  data-trim>
+                            # remove local branch
+                            git branch -D release/x.y.z
+                            # remove remote branch
+                            git push github :release/x.y.z
+                        </code></pre>
+                        <p>Olennaista: remote pitää viittaa viralliseen GitHub-repositoryyn eikä omaan forkkiin</p>
                     </section>
                 </section>
                 <section>
