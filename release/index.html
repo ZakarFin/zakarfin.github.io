@@ -86,7 +86,7 @@
                         <pre><code  data-trim>
                             cd oskari-frontend/tools
                             npm run core
-                            cd oskari-frontend
+                            cd ..
                             git add src/oskari.js bundles/bundle.js bundles/bundle.js.map
                             git commit -m 'Bump version'
                         </code></pre>
@@ -110,7 +110,6 @@
                         <pre><code  data-trim>
                             git push github release/x.y.z
                         </code></pre>
-
                         <p>Olennaista: remote pitää viittaa viralliseen GitHub-repositoryyn eikä omaan forkkiin</p>
                     </section>
                 </section>
@@ -128,6 +127,7 @@
                     </section>
                     <section>
                         <h4>demo.oskari.org frontend</h4>
+                        <p>Parametrejä pitää muokata</p>
                         <img src="img/oskari.org.front.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
@@ -141,7 +141,7 @@
                     </section>
                     <section>
                         <h4>demo.oskari.org server</h4>
-                        <p>Vaihda Jenkinsin oletusarvot</p>
+                        <p>Parametrejä pitää muokata</p>
                         <img src="img/demo.oskari.org.png" class="bg-white glow" style="width:80%" />
                     </section>
                     <section>
@@ -153,7 +153,7 @@
                         <p><b>Huom!</b> 
                         <ul>
                             <li>Konfiguraatio tulee servers.git:stä saman nimisestä branchistä</li>
-                            <li>Boottaa jettyt palvelimella</li>
+                            <li>Boottaa jettyt palvelimella kun build on valmis</li>
                         </ul>
                         </p>
                     </section>
@@ -286,6 +286,28 @@
                             version: x.y.z
                             branch: master
                         </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Yleisiä virhetilanteita</h2>
+                    </section>
+                    <section>
+                        <h2>Frontend</h2>
+                        <h4>git conflict: versio</h4>
+                        <p>Yleensä hotfixiä mergettäessä developiin</p>
+                        <ul>
+                            <li>bundles/bundle.js ja bundles/bundle.js.map voidaan aina luoda uudestaan 'npm run core' komennolla</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Server</h2>
+                        <h4>git conflict: versio</h4>
+                        <p>Yleensä hotfixiä mergettäessä developiin</p>
+                        <ul>
+                            <li>developissa on aina versiona seuraava.versio-SNAPSHOT</li>
+                            <li>masterissa on aina versiona viimeisin "stable"</li>
+                        </ul>
                     </section>
                 </section>
 <!--
