@@ -41,3 +41,7 @@ Note! Having automatic management of Virtual Memory/paging file size (tip 1) mig
     backend_flush_after = 0                # measured in pages, 0 disables
     wal_writer_flush_after = 0              # measured in pages, 0 disables
     checkpoint_flush_after = 0              # measured in pages, 0 disables
+
+### Service related to WSL
+
+LxssManager service handles the Linux subsystem on Windows. After larger Windows updates it's quite usual to see "No installed distributions found" or similar message when starting the WSL bash. Workarounds are to reboot the machine or try restarting the LxssManager service.
