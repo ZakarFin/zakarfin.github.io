@@ -29,9 +29,19 @@ By disabling Windows defender for WSL path. Maven/npm builds to run 5x faster if
 
 ### Postgres on WSL - pgAdmin on Win10 / connection issues
 
-Connect using 127.0.0.1 instead of localhost. Otherwise query tool doesn't work on pgAdmin.
+Connect using 127.0.0.1 instead of localhost. 
+Otherwise query tool doesn't start on pgAdmin.
 
-Note! Having automatic management of Virtual Memory/paging file size (tip 1) might also result in postgresql not starting, saying the data files are corrupted. Googling around suggests that these help (/etc/postgresql/10/main/postgresql.conf), but they did NOT in my case (disabling auto page sizing fixed the issue for me): 
+### Postgres on WSL startup issues
+
+Getting messages like these on startup:
+
+    [1332] PANIC:  could not flush dirty data: Function not implemented
+    [1331] LOG:  startup process (PID 1332) was terminated by signal 6: Aborted
+    [1331] LOG:  aborting startup due to startup process failure
+    [1331] LOG:  database system is shut down
+
+Googling around suggests that these help (/etc/postgresql/10/main/postgresql.conf): 
 
     # https://www.postgresql.org/message-id/flat/CA%2BmCpegfOUph2U4ZADtQT16dfbkjjYNJL1bSTWErsazaFjQW9A%40mail.gmail.com
     
@@ -41,6 +51,10 @@ Note! Having automatic management of Virtual Memory/paging file size (tip 1) mig
     backend_flush_after = 0                # measured in pages, 0 disables
     wal_writer_flush_after = 0              # measured in pages, 0 disables
     checkpoint_flush_after = 0              # measured in pages, 0 disables
+
+Note! Having automatic management of Virtual Memory/paging file size (tip 1) might also result in postgresql not starting saying the data files are corrupted. 
+
+Note 2! I only needed to add these after the 2019 spring update of Windows 10. Also needed to disabling auto pagefile sizing for things to start working again properly.
 
 ### "No installed distributions found"
 
