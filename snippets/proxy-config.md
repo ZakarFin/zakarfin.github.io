@@ -59,6 +59,7 @@ If SSH access is restricted, you might want to try these out (also helps with no
 
     set http_proxy=http://my.proxy.org:8888
     set https_proxy=https://my.proxy.org:8888
+    set no_proxy=mycompany.com
 
 ### wget
 
