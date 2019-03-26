@@ -5,7 +5,7 @@ title: Windows Subsystem for Linux
 
 These are some notes to self on issues that I've run into using WSL. Having Redis/Postgres/Git stuff on WSL and IDE/GUI tools on Windows 10.
 
-### WSL doesn't start/bash hangs
+### Problem: WSL doesn't start/ bash hangs
 
 Disable automatic management of Virtual Memory/paging file size
 
@@ -21,13 +21,13 @@ Disable automatic management of Virtual Memory/paging file size
 [https://superuser.com/questions/1275505/wsl-bash-doesnt-start](https://superuser.com/questions/1275505/wsl-bash-doesnt-start)
 
 
-### Disable Windows defender for WSL path
+### Speed up builds significantly
 
-Maven build to run 5x faster if you exclude the WSL path from Windows defender: 
+By disabling Windows defender for WSL path. Maven/npm builds to run 5x faster if you exclude the WSL path from Windows defender: 
 
 [https://medium.com/@leandrw/speeding-up-wsl-i-o-up-than-5x-fast-saving-a-lot-of-battery-life-cpu-usage-c3537dd03c74](https://medium.com/@leandrw/speeding-up-wsl-i-o-up-than-5x-fast-saving-a-lot-of-battery-life-cpu-usage-c3537dd03c74)
 
-### Postgres on WSL - pgAdmin on Win10
+### Postgres on WSL - pgAdmin on Win10 / connection issues
 
 Connect using 127.0.0.1 instead of localhost. Otherwise query tool doesn't work on pgAdmin.
 
@@ -42,6 +42,6 @@ Note! Having automatic management of Virtual Memory/paging file size (tip 1) mig
     wal_writer_flush_after = 0              # measured in pages, 0 disables
     checkpoint_flush_after = 0              # measured in pages, 0 disables
 
-### Service related to WSL
+### "No installed distributions found"
 
 LxssManager service handles the Linux subsystem on Windows. After larger Windows updates it's quite usual to see "No installed distributions found" or similar message when starting the WSL bash. Workarounds are to reboot the machine or try restarting the LxssManager service.
