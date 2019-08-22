@@ -15,7 +15,7 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/monokai.css" />
-
+<style></style>
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement("link");
@@ -34,49 +34,188 @@
           <h1>State of Oskari 8/2019</h1>
           <p>Sami Mäkinen - NLS Finland</p>
         </section>
-        <section>
-          <h4>Some intro about Oskari</h4>
+        <section data-markdown>
+          #### Oskari
+          
+          - Server: Java web application built with Maven
+          - Frontend: Javascript
+          - Library? Framework? Map engine? Software - not a service
+          - Geoportal that thrives in distributed spatial data infrastructure
         </section>
         <section>
           <h4>Frontend builds</h4>
-          <ul>
-            <li>Grunt.js + custom scripts -> Webpack</li>
-            <li>minifierAppSetup.json -> main.js with imports</li>
-            <li>
-              non-minified code loader -> dynamic import/lazy loaded bundle
-            </li>
-            <li>libraries -> npm</li>
-          </ul>
+          
+	        <p class="fragment shrink fade-out"><img src="images/grunt-logo.svg" style="max-width: 20%; border:0; background-color:transparent" /> </p>
+	        <p class="fragment grow fade-in current-visible"><img src="images/webpack-logo.svg"  style="max-width: 50%; border:0; background-color:transparent"/> </p>
+           
         </section>
-        <section>
-          <h4>Repository arrangements</h4>
+        <section data-markdown>
+          #### Frontend builds
+          
+          - Babel
+          - ES6 modules
+          - imports
+          - dynamic imports
+          - npm dependencies
+          - React support
         </section>
-        <section>
-          <h4>Travis, ESLint, Jest?</h4>
+        <section data-markdown>
+          #### New goodies
+
+          - React
+          - ES6 modules
+          - styled-components
+          - Ant Design UI components
+          - Storybook
+          - Jest
         </section>
-        <section>
-          <h4>React + ES6 modules + Storybook?</h4>
+        <section data-markdown>
+          #### First steps
+          - thematic maps legend
+          - map layer admin
+          - style conficts
         </section>
-        <section>
-          <h4>styled-components + antd</h4>
+        <section data-markdown>
+          #### Keeping up with pull requests
+          - Travis CI
+          - ESLint
+          - Jest
+          - Junit
+          - Oracle JDK 11, OpenJDK 8 & 11
         </section>
-        <section>
-          <h4>WFS stuff?</h4>
+        <section data-markdown>
+          #### Repository arrangements
+
+          - oskari-frontend
+          - sample-application
+          - oskari-server
+          - sample-server-extension
         </section>
-        <section>
-          <h4>Thematic maps?</h4>
+        <section data-markdown>          
+#### WFS stuff
+- Styling (Oskari Style improvements, MapBox styles for MVT, color animations)
+- https://oskari.org/documentation/examples/oskari-style
+- hover
+- performance improvements for addin/updating features
+- WFS feature clustering
+- VectorLayerRequest / AddFeaturesToMapRequest -> hover
         </section>
-        <section>
-          <h4>User geolocation?</h4>
+        <section data-markdown>
+#### Thematic maps
+- First React components functionality: thematic maps legend
+- Thematic maps diagrams
+- Thematic maps manual classification
+- Timeseries for statistical maps
         </section>
-        <section>
-          <h4>Other improvements?</h4>
+        <section data-markdown>
+#### User geolocation
+- User geolocation can no longer move the map outside the map extent
+- User location now supports accuracy for location and configurable zoom level.
+- User location detection now supports tracking and drawing the route on map (no UI for this, usable via RPC)
+        </section>
+        <section data-markdown>
+#### Other improvements?
+- Map rotation is now saved in state (saved views/embedded maps/page reload).
+- French & Russian localizations
+- Toolbar button logic rewrite https://github.com/oskariorg/oskari-frontend/pull/754
+- Support for Bing maps added (required API key from Bing).
+- initial 3d support, builds on isFeatureSupported that was introduced on isSRSsupported
+- Appsetup can now have customized publish template
+- language selector
+- Session timeout notification improvements
+- Improved performance of the layer listing with long layer lists
+- Improved performance of the feature data table when multiple features are selected
+- Oskari.getNumberFormatter()
+- API doc improvements
+- measurement function now works properly for MultiPolygons and degree based projections
+- Improvements to drawtools.
+- Publisher tools handling and resuming normal operations after publisher has been improved.
+- Improved placement for UI-elements/plugins that are shown on top of the map.
         </section>
         <section>
           <h4>Server stuff?</h4>
         </section>
-        <section>
-          <h4>sample app / csrf</h4>
+        <section data-markdown>
+          
+- csrf added  -> samesite cookie (etc 3rd party cookie handling)
+- improvements to end-user registration
+- concept of internal layers
+- layer proxy improvements
+- support vector tile based layers
+- skip intro & map rotation params on urls
+- Jetty 9 upgrade (1.50 similar to 1.49 but includes changes to transport to work with current Jetty version)
+- startup removed from appsetups
+- KML parsing improved
+- setup app improved (disabled modules are no longer populated, SRS populated properly and bounds set)
+- login redirects to referer instead of geoportal (enables login on embedded maps/views)
+- Spring configurations/annotations are now scanned from org.oskari.* packages in addition to fi.nls.oskari.*
+- Compilation of codebase is now tested with OpenJDK 8 & 11 and Oracle Java 11
+- Enabled async controllers
+- fixes to analysis functionality
+
+- appsetups specific publish templates!! -> 3d
+- inital support for in-memory test database setup (https://github.com/oskariorg/oskari-server/pull/403)
+
+thematic maps refactoring
+- mapstats removal
+- geojson from resources files
+- filter out data without labels
+- localization options added
+- region sets now have an order
+- initial support for thematic datasource UN stats (https://unstats.un.org/home/)
+- improvements for thematic datasource UN stats (get data to figure out options for users)
+
+search channels 
+- validation error handling improved
+- removed nls search channels
+- OSM channel supports bbox filter to limit results 
+
+
+printout
+- rewrite impl
+- logo on pdf customizable
+- support for current layer types (user content etc)
+- fixed scale line 
+
+IOHelper
+- urlencoding
+
+Error handling
+- CSW parsing
+- migrations error handling (app won't start in partially successful migrations between versions)
+- layer coverage information can now be ignored (config option)
+- classpath conflicts with libraries fixed
+
+Libraries:
+- jQuery 1.10.2 to 3.3.1 
+- Log4j 1.x -> 2.x
+- Geotools 14.2 -> 19.2
+- Ibatis -> MyBatis
+- CometD 2.x -> 4.x
+- Jackson 1.x dropped
+
+Sample app lifecycle
+- sample -> example
+- example -> sample in different repository
+- Java 9+ (mocking for junit)
+
+WFS-integration:
+- replacement for transport (removing Jetty requirement as server software)
+- vector features as geojson or Mapbox vector tiles for browser instead of binary (admin selectable)
+- Supports feature caching (balancing between too many requests to services vs max zoom level)
+- Protects services with circuit breaker (Hystrix) like transport
+- styling options improved (SLD can't be used) for all vector features shown on Oskari
+- complex properties support in mvt
+- localization of property names
+- permissions for user content rewrite
+- WFS 3 support
+
+Documentation:
+- oskari.org/db
+
+Problems:
+- package.json versions prevent demo.oskari.org frontend build (webpack config doesn't work with the version package.json allows)
+- service worker for WFS-integration
         </section>
         <section>
           <h4>Jetty 9 + Java 9+ support</h4>
@@ -91,6 +230,7 @@
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
+				history: true,
         dependencies: [
           { src: "plugin/markdown/marked.js" },
           { src: "plugin/markdown/markdown.js" },
