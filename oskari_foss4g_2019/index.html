@@ -15,7 +15,8 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/monokai.css" />
-<style></style>
+<style>
+</style>
     <!-- Printing and PDF exports -->
     <script>
       var link = document.createElement("link");
@@ -31,22 +32,43 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <h1>State of Oskari 8/2019</h1>
+            <img  src="images/oskari_k.svg" style="width: 70%; border:0; background-color:transparent; " />
+          <h2>Year in review 8/2019</h2>
           <p>Sami Mäkinen - NLS Finland</p>
         </section>
         <section data-markdown>
-          #### Oskari
+          ### Oskari
           
-          - Server: Java web application built with Maven
-          - Frontend: Javascript
-          - Library? Framework? Map engine? Software - not a service
-          - Geoportal that thrives in distributed spatial data infrastructure
+          - Software library/framework
+          - Server: Java built with Maven
+          - Frontend: JS built with Webpack
+          - Requires:
+            - PostgreSQL/PostGIS
+            - Redis
+            - (Spatial Data Infrastructure)
+        </section>
+        <section>
+            <h4>Arctic-SDI geoportal</h4>
+            <img  src="images/asdi.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
+            <h4>National geoportal Finland</h4>
+            <img  src="images/pti.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section data-markdown>
+          ### Repository arrangements
+
+          - oskari-server
+            - (oskari-server-extension-template)
+            - sample-server-extension
+          - oskari-frontend
+            - sample-application
         </section>
         <section>
           <h4>Frontend builds</h4>
           
-	        <p class="fragment shrink fade-out"><img src="images/grunt-logo.svg" style="max-width: 20%; border:0; background-color:transparent" /> </p>
-	        <p class="fragment grow fade-in current-visible"><img src="images/webpack-logo.svg"  style="max-width: 50%; border:0; background-color:transparent"/> </p>
+          <p class="fragment shrink fade-out"><img src="images/grunt-logo.svg" style="max-width: 20%; border:0; background-color:transparent" /> </p>
+          <p class="fragment grow fade-in current-visible"><img src="images/webpack-logo.svg"  style="max-width: 50%; border:0; background-color:transparent"/> </p>
            
         </section>
         <section data-markdown>
@@ -60,23 +82,75 @@
           - React support
         </section>
         <section data-markdown>
-          #### New goodies
-
-          - React
-          - ES6 modules
-          - styled-components
-          - Ant Design UI components
-          - Storybook
-          - Jest
+          #### Imports: bundles
+          Then/now:
+          ```json
+          "scripts": [{
+            "type": "text/javascript",
+            "src": ".../mapping/drawtools/instance.js"
+          }, {
+            "type": "text/css",
+            "src": ".../mapping/drawtools/resources/css/style.css"
+          }, { ... }]
+          ```
+          Now/future:
+          ```Javascript
+          import { DrawTools } from './instance';
+          import './resources/css/style.css';
+          ```
         </section>
         <section data-markdown>
-          #### First steps
+          #### Imports: applications
+          Then (minifierAppSetup.json):
+          ```json
+          {
+            "bundlename" : "drawtools",
+            "metadata" : {
+              "Import-Bundle" : {
+                "drawtools" : {
+                  "bundlePath" : ".../mapping/ol3/"
+                }
+              }
+            }
+          }
+          ```
+          Now (main.js):
+          ```Javascript
+          import 'oskari-loader!oskari-frontend/.../drawtools/bundle.js';
+          ```
+        </section>
+        <section data-markdown>
+          ### New goodies: React
+
+          - keeping it small and simple
+          - named imports
+          - use props as much as possible
+          - state kept at bundle instance
+          - "mutator" objects from services
+        </section>
+        <section data-markdown>
+          ### First steps in React
+
+          - language selector
           - thematic maps legend
           - map layer admin
-          - style conficts
         </section>
         <section data-markdown>
-          #### Keeping up with pull requests
+          ### New goodies for UI
+
+          - Ant Design
+            - "The world's second most popular React UI framework"
+          - styled-components
+          - Challenge: multiple styling libs / style conficts
+        </section>
+        <section data-markdown>
+            ### New goodies
+
+            - Storybook
+            - Jest
+         </section>
+        <section data-markdown>
+          ### Pull requests
           - Travis CI
           - ESLint
           - Jest
@@ -84,28 +158,35 @@
           - Oracle JDK 11, OpenJDK 8 & 11
         </section>
         <section data-markdown>
-          #### Repository arrangements
+          ### WFS integrations
 
-          - oskari-frontend
-          - sample-application
-          - oskari-server
-          - sample-server-extension
+          - Complete rewrite
+          - MVT / GeoJSON
+          - WFS 3 support
         </section>
-        <section data-markdown>          
-#### WFS stuff
-- Styling (Oskari Style improvements, MapBox styles for MVT, color animations)
-- https://oskari.org/documentation/examples/oskari-style
-- hover
-- performance improvements for addin/updating features
-- WFS feature clustering
-- VectorLayerRequest / AddFeaturesToMapRequest -> hover
+        <section>
+            <h3>Slow services...</h3>
+            <ul>
+              <li>Hystrix</li>
+              <li>Service Worker</li>
+            </ul><br />
+            <img  src="images/slow.gif" style="max-width: 100%; border:0;" />
         </section>
         <section data-markdown>
-#### Thematic maps
-- First React components functionality: thematic maps legend
+          ### Vector features
+
+          - https://oskari.org/documentation/examples/oskari-style
+          - Mapbox styles for MVT
+          - Clustering
+          - Color animations
+          - Hover
+          - Performance improvements
+        </section>
+        <section data-markdown>
+#### Thematic maps -> Timon esitykseen
 - Thematic maps diagrams
 - Thematic maps manual classification
-- Timeseries for statistical maps
+- Time series
         </section>
         <section data-markdown>
 #### User geolocation
@@ -230,7 +311,7 @@ Problems:
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
-				history: true,
+        history: true,
         dependencies: [
           { src: "plugin/markdown/marked.js" },
           { src: "plugin/markdown/markdown.js" },
