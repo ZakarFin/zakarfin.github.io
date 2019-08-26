@@ -38,7 +38,7 @@
         </section>
         <section data-markdown>
           ### Oskari
-          - Software library/framework/geoportal
+          - Library/framework/geoportal/tool
           - Server: Java built with Maven
           - Frontend: JS built with Webpack
           - Requires:
@@ -121,25 +121,25 @@
         <section data-markdown>
           ### New goodies: React
 
-          - keeping it small and simple
-          - named imports
-          - use props as much as possible
-          - state kept at bundle instance
-          - "mutator" objects from services
+          - Small and simple
+          - Named imports
+          - Use props as much as possible
+          - State kept at bundle instance
+          - "Mutator" objects from services
         </section>
         <section data-markdown>
           ### First steps in React
 
-          - language selector
-          - thematic maps legend
-          - map layer admin
+          - Language selector
+          - Thematic maps (legend)
+          - Map layer admin
         </section>
         <section data-markdown>
           ### New goodies for UI
 
           - Ant Design
             - "The world's second most popular React UI framework"
-          - styled-components
+          - Styled-components
           - Challenge: multiple styling libs / style conficts
         </section>
         <section data-markdown>
@@ -195,7 +195,7 @@
             - Localization options added
             - Region sets order/res files
 
-        - Presentation at [Timon esitys]
+        - Thematic Mapping with Oskari at 15.00 (Opera room)
         </section>
         <section data-markdown>
           ### Server stuff
@@ -214,52 +214,49 @@
         </section>
         <section data-markdown>
           ### Search
-          - OSM channel supports bbox filter to limit results 
-          - Validation error handling improved
           - Removed NLS search channels
+          - Validation error handling improved
+          - OSM channel supports bbox filter to limit results 
         </section>
         <section data-markdown>
           ### Documentation / DX
 
-          - API doc improvements
-          - SchemaSpy: oskari.org/db
-          - Toolbar button logic rewrite https://github.com/oskariorg/oskari-frontend/pull/754
-          - classpath conflicts with libraries fixed
-          - setup app improved (disabled modules are no longer populated, SRS populated properly and bounds set)
-          - inital support for in-memory test database setup (https://github.com/oskariorg/oskari-server/pull/403)
-          - migrations error handling (app won't start in partially successful migrations between versions)
-          - classpath conflicts with libraries fixed
+          - API doc improvements / SchemaSpy: oskari.org/db
+          - Toolbar button logic rewrite
+          - Migrations error handling
+          - Setup app improved (disabled modules are no longer populated, SRS populated properly and bounds set)
+          - Inital support for in-memory test database setup
           - Library updates
           - fi.nls.oskari.* -> org.oskari.* packages
-
-  
-
+          - Classpath conflicts with libraries fixed
 
         </section>
         <section data-markdown>
         #### Other
+
         - Bing maps
         - 3D
         - French & Russian localizations
         - User location (path, accuracy, error handling, map extent)
-        - Improvements to drawtools.
-        - Performance improvements
-        - Session timeout notification improvements
-        - improvements to end-user registration
-        - layer proxy improvements
-        - KML parsing improved
-        - CSW parsing improved
+      </section>
+        <section data-markdown>
+        #### Other improvements
+
+        - End-user registration
+        - Layer proxy
+        - KML & CSW parsing
+        - drawtools
+        - Session timeout notification
+        - Performance 
         - More things saved in state like map rotation
-        
         </section>
         <section data-markdown>
-        ### other
-        - concept of internal layers
-        - login redirects to referer instead of geoportal (enables login on embedded maps/views)
-
-        - support vector tile based layers
-        - skip intro & map rotation params on urls
-        - fixes to analysis functionality
+        ### Other stuff
+        - Support vector tile based layers
+        - Internal layers
+        - Login redirects to referer instead of geoportal "root"
+        - Skip intro & map rotation params on urls
+        - Fixes to analysis functionality
     </section>
       </div>
     </div>
