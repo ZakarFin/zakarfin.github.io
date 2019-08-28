@@ -61,6 +61,7 @@
             - (oskari-server-extension-template)
             - sample-server-extension
           - oskari-frontend
+            - oskari-frontend-contrib
             - sample-application
         </section>
         <section>
@@ -107,7 +108,7 @@
             "metadata" : {
               "Import-Bundle" : {
                 "drawtools" : {
-                  "bundlePath" : ".../mapping/ol3/"
+                  "bundlePath" : ".../mapping/ol/"
                 }
               }
             }
@@ -132,7 +133,7 @@
 
           - Language selector
           - Thematic maps (legend)
-          - Map layer admin
+          - Map layer listing / admin
         </section>
         <section data-markdown>
           ### New goodies for UI
@@ -186,22 +187,21 @@
         <section data-markdown>
         #### Thematic maps
 
-        - Time series
-        - Diagram
+        - Time series & diagram
         - UN stats Sustainable Development Goals
         - Improvements:
             - Manual classification
-            - Filter out data without labels
+            - Filter out invalid data
             - Localization options added
             - Region sets order/res files
 
-        - Thematic Mapping with Oskari at 15.00 (Opera room)
+        - Thematic Mapping with Oskari at 15.00 (Opera)
         </section>
         <section data-markdown>
           ### Server stuff
 
           - Jetty/CometD upgrade (1.49 / 1.50)
-          - CSRF protection -> cookie -> SameSite
+          - CSRF protection
           - Enabled async controllers
           - Frontend paths removed from AppSetups
           - Appsetup specific publish template
@@ -209,13 +209,13 @@
         <section data-markdown>
           ### Printout
           - Complete rewrite
-          - True vector layers
+          - True vector features
           - Logo on PDF customizable
         </section>
         <section data-markdown>
           ### Search
           - Removed NLS search channels
-          - Validation error handling improved
+          - Validation & error handling improved
           - OSM channel supports bbox filter to limit results 
         </section>
         <section data-markdown>
@@ -224,7 +224,7 @@
           - API doc improvements / SchemaSpy: oskari.org/db
           - Toolbar button logic rewrite
           - Migrations error handling
-          - Setup app improved (disabled modules are no longer populated, SRS populated properly and bounds set)
+          - Setup app improved
           - Inital support for in-memory test database setup
           - Library updates
           - fi.nls.oskari.* -> org.oskari.* packages
@@ -258,6 +258,16 @@
         - Skip intro & map rotation params on urls
         - Fixes to analysis functionality
     </section>
+    <section data-markdown>
+    # Thank you!
+    - https://oskari.org
+    - https://github.com/oskariorg
+    - Oskari-user@lists.osgeo.org
+    - https://gitter.im/oskariorg/chat
+</section>
+<section>
+  <img  src="images/inspire.png" style="width: 100%; border:0; background-color:transparent; " />
+</section>
       </div>
     </div>
 
