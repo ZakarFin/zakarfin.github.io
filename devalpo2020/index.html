@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>devALPO 25.9.2020</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+<style>
+</style>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+            <img  src="images/oskari_k.svg" style="width: 70%; border:0; background-color:transparent; " />
+          <h2>Oskari 2.0</h2>
+          <p>Sami Mäkinen - NLS Finland</p>
+        </section>
+        <section data-markdown>
+          ### Oskari
+          - Library/framework/geoportal/tool
+          - Server: Java built with Maven
+          - Frontend: JS built with Webpack
+          - Requires:
+            - PostgreSQL/PostGIS
+            - Redis
+            - (Spatial Data Infrastructure)
+        </section>
+        <section>
+            <h1>Oskari <span class="fragment" style="color: red;">2</span><span class="fragment" style="color: red;">.</span><span class="fragment" style="color: red;">0</span></h1>
+            <img class="fragment" src="images/excited.gif" style="max-width: 50%; border:0; background-color:transparent" /> 
+        </section>
+        <section>
+          <h2>The hype is real!</h2>
+          <ul>
+            <li class="fragment">10/2013 devALPO:<br /><span style="color: red;">Oskari 2</span> teaser</li>
+            <li class="fragment">4/2014: <br /><span style="color: red;">Oskari 2.0</span> – more modular and easier to develop</li>
+            <li class="fragment">10/2015 devALPO: <br />Currently under development <span style="color: red;">Oskari 2</span></li>
+          </ul>
+          <pre class="fragment"><code data-trim data-noescape>
+            commit 4e5a58f8eac2f51a749d6217ac305109597f8a3c
+            Added initial Oskari2 plan
+            ZakarFin on 7 Dec 2015
+          </code></pre>
+        </section>
+        <section>
+            <h1>1.x</h1>
+            <img src="images/demo_oskari_org.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
+            <h1 style="color: red;">2<span class="fragment">.</span><span class="fragment">0</span></h1>
+            <img class="fragment" src="images/demo_oskari_org.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
+          <h2>Developer experience</h2>
+          <ul>
+            <li class="fragment">2013: frontend coding style</li>
+            <li class="fragment">2014: ??? <span class="fragment">require.js/Vagrant</span> <span class="fragment">???</span></li>
+            <li class="fragment">2015: frontend cleanup/clarification</li>
+            <li class="fragment">2016-2020: sample app extracted, "modern js", Flyway DB etc</li>
+            <li class="fragment">6/2020: <span class="fragment">Server side changes</span> <span class="fragment" style="color: red;">== 2.0</span></li>
+          </ul>
+        </section>
+
+
+
+
+        <section data-markdown>
+          ### ???
+        </section>
+        <section data-markdown>
+          #### ???
+          Then (minifierAppSetup.json):
+          ```json
+          {
+            "bundlename" : "drawtools"
+          }
+          ```
+          Now (main.js):
+          ```Javascript
+          import 'oskari-loader!oskari-frontend/.../drawtools/bundle.js';
+          ```
+        </section>
+    <section data-markdown>
+    # Thank you!
+    - https://oskari.org
+    - https://github.com/oskariorg
+    - Oskari-user@lists.osgeo.org
+    - https://gitter.im/oskariorg/chat
+</section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
+        </section>
