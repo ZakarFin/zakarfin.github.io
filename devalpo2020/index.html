@@ -160,7 +160,26 @@
       </section>
       <section data-markdown>
         ## Migration helpers
-        - ...
+
+        Consistency and easier to understand 
+
+        ```java
+        fi.nls.oskari.db.DBHandler.setupAppContent(conn, "setup-file");
+        fi.nls.oskari.db.ViewHelper.insertView("appsetup.json");
+        fi.nls.oskari.db.LayerHelper.setupLayer("layer.json"); 
+
+        Bundle b = new Bundle();
+        b.setName("myBundle");
+        fi.nls.oskari.db.BundleHelper.registerBundle(b, conn);
+        ```
+        ---
+        ```java
+        org.oskari.helpers.AppSetupHelper.create("/json/application.json");
+        org.oskari.helpers.LayerHelper.setupLayer("/json/layer.json");
+        org.oskari.helpers.BundleHelper.registerBundle(conn, "myBundle");
+
+        AppSetupHelper.addBundleToApps(conn, "myBundle");
+        ```
       </section>
 
         <section data-markdown>
