@@ -81,48 +81,95 @@
             <li class="fragment">6/2020: <span class="fragment">Server side changes</span> <span class="fragment" style="color: red;">== 2.0</span></li>
           </ul>
         </section>
-
-
-
-
         <section data-markdown>
           ## oskari-frontend
+          - https://github.com/oskariorg/oskari-frontend/compare/1.56.0...2.0.0
+
           - 47 commits
           - 15 changed files
           - with 115 additions and 100 deletions
 
           - ~25 lines of release notes changes
-          - https://github.com/oskariorg/oskari-frontend/compare/1.56.0...2.0.0
         </section>
         <section data-markdown>
           ## oskari-server
+          - https://github.com/oskariorg/oskari-server/compare/1.56.0...2.0.0
+          
           - 156 commits
           - 526 changed files
           - with 5 759 additions and 35 387 deletions
 
           - ~200 lines of migration guide/release notes
-          - https://github.com/oskariorg/oskari-server/compare/1.56.0...2.0.0
+        </section>
+
+        <section data-markdown>
+          ## Library updates
+          Features and security
+          - GeoTools 19.2 -> 23.2
+          - Java Topology Suite (JTS) 1.14.0 -> 1.16.1
+          - GeoServer 2.13.2 -> 2.17.2
+          - Spring 4.x -> 5.x
+          - Jetty 9.4.12 -> 9.4.31
+          - Postgres JDBC 42.2.5 -> 42.2.14
+          - Ibatis -> removed
         </section>
         <section data-markdown>
-          #### ???
-          Then (minifierAppSetup.json):
-          ```json
-          {
-            "bundlename" : "drawtools"
+          ## Flyway DB
+
+          Postgres 12 support
+
+          ```java
+          import org.flywaydb.core.api.migration.jdbc.JdbcMigration;
+
+          public class V[version]__[name] implements JdbcMigration {
+              public void migrate(Connection connection) { ... }
           }
           ```
-          Now (main.js):
-          ```Javascript
-          import 'oskari-loader!oskari-frontend/.../drawtools/bundle.js';
+          ---
+          ```java
+          import org.flywaydb.core.api.migration.BaseJavaMigration;
+          import org.flywaydb.core.api.migration.Context;
+
+          public class V[version]__[name] extends BaseJavaMigration {
+            public void migrate(Context context) {
+                  Connection connection = context.getConnection();
+                  ...
+            }
+          }
           ```
+      </section>
+
+      <section>
+        <h2>Maven (pom.xml)</h2>
+
+        Consistency in naming
+
+        <pre><code data-trim data-noescape>
+          &lt;dependency&gt;
+            &lt;groupId&gt;fi.nls.oskari&lt;/groupId&gt;
+            &lt;artifactId&gt;oskari-control-base&lt;/artifactId&gt;
+          &lt;/dependency&gt;
+      </code></pre>
+      <hr/>
+        <pre><code data-trim data-noescape>
+          &lt;dependency&gt;
+            &lt;groupId&gt;org.oskari&lt;/groupId&gt;
+            &lt;artifactId&gt;control-base&lt;/artifactId&gt;
+          &lt;/dependency&gt;
+      </code></pre>
+      </section>
+      <section data-markdown>
+        ## Migration helpers
+        - ...
+      </section>
+
+        <section data-markdown>
+          # Thank you!
+          - https://oskari.org
+          - https://github.com/oskariorg
+          - Oskari-user@lists.osgeo.org
+          - https://gitter.im/oskariorg/chat
         </section>
-    <section data-markdown>
-    # Thank you!
-    - https://oskari.org
-    - https://github.com/oskariorg
-    - Oskari-user@lists.osgeo.org
-    - https://gitter.im/oskariorg/chat
-</section>
       </div>
     </div>
 
