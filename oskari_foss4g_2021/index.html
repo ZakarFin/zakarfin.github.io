@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>State of Oskari 9/2021</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+<style>
+</style>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+            <img  src="images/oskari_k.svg" style="width: 70%; border:0; background-color:transparent; " />
+          <h2>Year in review 9/2021</h2>
+          <p>Sami Mäkinen - NLS Finland</p>
+        </section>
+        <section data-markdown>
+          ### Oskari
+          - Library/framework/geoportal/tool
+          - Server: Java built with Maven
+          - Frontend: JS built with Webpack
+          - Requires:
+            - PostgreSQL/PostGIS
+            - Redis
+            - (Spatial Data Infrastructure)
+        </section>
+        <section>
+            <h4>History in nutshell</h4>
+            <ol>
+              <li>National geoportal</li>
+              <li>Open source!</li>
+              <li>???</li>
+              <li>Profit?</li>
+            </ol>
+        </section>
+        <section>
+            <h4>National geoportal Finland</h4>
+            <img  src="images/pti.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
+            <h4>Arctic-SDI geoportal</h4>
+            <img  src="images/asdi.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section data-markdown>
+          ### Repository arrangements
+
+          - oskari-server
+            - sample-server-extension
+          - oskari-frontend
+            - oskari-frontend-contrib
+            - sample-application
+        </section>
+        <section data-markdown>
+          ### React stuff
+
+          - Map layer listing / admin
+        </section>
+        <section data-markdown>
+          ### WFS integrations
+
+          - Complete rewrite
+          - MVT / GeoJSON
+          - WFS 3 supports
+          - Complex features
+        </section>
+    <section data-markdown>
+    # Thank you!
+    - https://oskari.org
+    - https://github.com/oskariorg
+    - Oskari-user@lists.osgeo.org
+    - https://gitter.im/oskariorg/chat
+</section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
+        </section>
