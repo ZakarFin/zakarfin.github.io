@@ -92,12 +92,11 @@
 
           - Library updates requiring manual work
             - JTS (com.vividsolutions -> org.locationtech)
-            - Flyway DB (API changed)
+            - Flyway DB (major API changed)
 
           - Maven artifact naming changes:
             - groupId = org.oskari
             - artifactIds streamlined
-          - New Maven repo url
         </section>
         <section data-markdown>
           ### Oskari 2.0 - database
@@ -107,7 +106,7 @@
           - Create db fully with Flyway
           - Content helpers / admin functionalities
           - Ibatis -> MyBatis
-          - DB tables renamed portti_ -> oskari_
+          - DB tables renamed for consistency
         </section>
         <section data-markdown>
           ### Server clustering
@@ -142,14 +141,13 @@
         <section data-markdown>
           ### More customization options
 
-          - GFI
-            - custom handler / layer
-            - custom renderers / property
+          - GFI customization
+            - handler per layer
+            - custom renderers per property
 
           - GDAL no longer an optional step for install (GPX & Mid/Mif)
           - GeoPackages support for content import
           - Cleanup deprecated functionalities
-          - GFI renderers / property
         </section>
         <section data-markdown>
           ### Logging
