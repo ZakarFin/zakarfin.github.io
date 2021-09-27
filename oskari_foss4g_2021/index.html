@@ -97,6 +97,7 @@
           - Maven artifact naming changes:
             - groupId = org.oskari
             - artifactIds streamlined
+          - New Maven repo url
         </section>
         <section data-markdown>
           ### Oskari 2.0 - database
@@ -104,20 +105,70 @@
           - Clean up "legacy" db initialization
           - Detect migration from 1.56 vs clean db
           - Create db fully with Flyway
-          - 
+          - Content helpers / admin functionalities
+          - Ibatis -> MyBatis
+          - DB tables renamed portti_ -> oskari_
         </section>
         <section data-markdown>
-          ### React stuff
+          ### Server clustering
 
-          - Map layer listing / admin
+          - Persistent user sessions (Spring/AWS ElastiCache)
+          - Cache synchronization
+          - Health/status check paths
+          - Programmatic log level changing
+        </section>
+        <section>
+            <h4>Scattered timeseries data</h4>
+            <img  src="images/timeseries.png" style="max-width: 80%; border:0;" />
         </section>
         <section data-markdown>
-          ### WFS integrations
+          ### Performance improvements
+          - Layerlisting
+            - Starting point: ~2s
+            - Cached: ~300ms
+          - Without coverage data:
+            - Response size 1.2MB -> 287kB
+            - Respond time ~130ms
+          - ~2400 layers
+        </section>
+        <section data-markdown>
+          ### More performance changes
+          - WMTS-capabilities XML -> JSON
+          - Frontend vector layer styling improvements
+          - Upcoming: layerlist 2.0
+          - Upcoming: AppSetup
+          - Upcoming: Frontend code bundling
+        </section>
+        <section data-markdown>
+          ### More customization options
 
-          - Complete rewrite
-          - MVT / GeoJSON
-          - WFS 3 supports
-          - Complex features
+          - GFI
+            - custom handler / layer
+            - custom renderers / property
+
+          - GDAL no longer an optional step for install (GPX & Mid/Mif)
+          - GeoPackages support for content import
+          - Cleanup deprecated functionalities
+          - GFI renderers / property
+        </section>
+        <section data-markdown>
+          ### Logging
+
+          - Logging improvements /less noise
+          - Change log levels at runtime
+          - Audit Log
+          - Identifier headers (user agent/referrer)
+          - Plugin mechanism to track proxied requests
+        </section>
+        <section data-markdown>
+          ### Generic
+
+          - Travis CI -> GitHub actions
+          - Improvements to printing
+          - Java 11 compliancy
+          - Layer metadata improvements (baseline from capabilities -> then overrides)
+          - Quality of life improvements:
+            - Check if map layer is used before removing layer
         </section>
     <section data-markdown>
     # Thank you!
