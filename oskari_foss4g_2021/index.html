@@ -21,9 +21,21 @@
           <h2>Year in review 9/2021</h2>
           <p>Sami Mäkinen - NLS Finland</p>
         </section>
+        <section>
+            <h4>History in nutshell</h4>
+            <ol>
+              <li>National geoportal</li>
+              <li>Open source it</li>
+              <li>???</li>
+              <li>Profit?</li>
+            </ol>
+        </section>
+        <section>
+            <h4>National geoportal Finland</h4>
+            <img  src="images/pti2021.png" style="max-width: 80%; border:0;" />
+        </section>
         <section data-markdown>
           ### Oskari
-          - Library/framework/geoportal/tool
           - Server: Java built with Maven
           - Frontend: JS built with Webpack
           - Requires:
@@ -31,31 +43,68 @@
             - Redis
             - (Spatial Data Infrastructure)
         </section>
-        <section>
-            <h4>History in nutshell</h4>
-            <ol>
-              <li>National geoportal</li>
-              <li>Open source!</li>
-              <li>???</li>
-              <li>Profit?</li>
-            </ol>
-        </section>
-        <section>
-            <h4>National geoportal Finland</h4>
-            <img  src="images/pti.png" style="max-width: 80%; border:0;" />
-        </section>
-        <section>
-            <h4>Arctic-SDI geoportal</h4>
-            <img  src="images/asdi.png" style="max-width: 80%; border:0;" />
-        </section>
         <section data-markdown>
-          ### Repository arrangements
+          ### Application components
 
+          \+ APIs/extension points for building web mapping software.
+
+          #### Github repositories
           - oskari-server
             - sample-server-extension
           - oskari-frontend
             - oskari-frontend-contrib
             - sample-application
+        </section>
+        <section>
+            <h4>Arctic-SDI geoportal</h4>
+            <img  src="images/asdi.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
+            <h4>3D geoportal</h4>
+            <img  src="images/3d.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section data-markdown>
+          ### WFS / OGC API Features
+          
+          Client rewrite
+          - introduced 1.52
+          - default 1.53
+          - forced migration 1.54
+
+          Cleanup and migration for related db content for 2.0
+        </section>
+        <section data-markdown>
+          ### Vector features
+          
+          - Frontend can query service metadata
+            - Combined older API endpoints
+            - attributes with value types
+            - localized names
+            - other customization
+          - Styling of vector features improved
+          - Features can be written as MVT or GeoJSON for frontend
+          - Filters
+        </section>
+        <section data-markdown>
+          ### Oskari 2.0
+
+          - Upgrade path: 1.x -> 1.56 -> 2.x
+
+          - Library updates requiring manual work
+            - JTS (com.vividsolutions -> org.locationtech)
+            - Flyway DB (API changed)
+
+          - Maven artifact naming changes:
+            - groupId = org.oskari
+            - artifactIds streamlined
+        </section>
+        <section data-markdown>
+          ### Oskari 2.0 - database
+
+          - Clean up "legacy" db initialization
+          - Detect migration from 1.56 vs clean db
+          - Create db fully with Flyway
+          - 
         </section>
         <section data-markdown>
           ### React stuff
