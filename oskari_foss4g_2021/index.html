@@ -22,24 +22,24 @@
           <p>Sami Mäkinen - NLS Finland</p>
         </section>
         <section>
+            <h4>National geoportal Finland</h4>
+            <img src="images/pti2021.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
             <h4>History in nutshell</h4>
             <ol>
               <li>National geoportal</li>
               <li>Open source it</li>
               <li>???</li>
-              <li>Profit?</li>
+              <li>Profit</li>
             </ol>
-        </section>
-        <section>
-            <h4>National geoportal Finland</h4>
-            <img src="images/pti2021.png" style="max-width: 80%; border:0;" />
         </section>
         <section data-markdown>
           ### Oskari
           - Server: Java built with Maven
           - Frontend: JS built with Webpack
           - Requires:
-            - PostgreSQL/PostGIS
+            - PostgreSQL (PostGIS)
             - Redis
             - (Spatial Data Infrastructure)
         </section>
@@ -48,7 +48,7 @@
 
           <p data-markdown>
             - For building web mapping software
-            - APIs and extension points
+            - APIs and extension points on multiple levels
           </p>
           <hr/>
           <div style="float:left; padding: 10px 40px"><img src="images/logo/github.png" style="height: 200px; border:0;" /></div>
@@ -96,7 +96,7 @@
 
           - Library updates requiring manual work
             - JTS (com.vividsolutions -> org.locationtech)
-            - Flyway DB (major API changed)
+            - Flyway DB (major API change)
 
           - Maven artifact naming changes:
             - groupId = org.oskari
@@ -148,19 +148,7 @@
           - Frontend vector layer styling improvements
           - Idea: layerlist 2.0
           - Idea: AppSetup
-          - Idea: Frontend code bundling
-        </section>
-        <section data-markdown>
-          ### More customization options
-
-          - RPC: application specific functionalities
-          - GFI customization
-            - handler per layer
-            - custom renderers per property
-
-          - GDAL no longer an optional step for install (GPX & Mid/Mif)
-          - GeoPackages support for content import
-          - Cleanup deprecated functionalities
+          - Idea: Changes to frontend code bundling
         </section>
         <section data-markdown>
           ### Logging
@@ -172,13 +160,24 @@
           - Plugin mechanism to track proxied requests
         </section>
         <section data-markdown>
-          ### Generic
+          ### More customization options
+
+          - RPC: application specific functionalities
+          - Customizing feature data
+            - handler per layer
+            - custom renderers per property
+
+        </section>
+        <section data-markdown>
+          ### Other
 
           - Travis CI -> GitHub Actions
-          - Improvements to printing
+          - React.js migration continues
+          - GDAL no longer used (GPX & Mid/Mif imports)
+          - GeoPackages support for content import
           - Java 11 compliancy
-          - Layer metadata improvements (baseline from capabilities -> then overrides)
-          - Quality of life improvements:
+          - Quality of life improvements for admins:
+            - New layer admin UI
             - Check if map layer is used before removing layer
         </section>
         <section data-markdown>
