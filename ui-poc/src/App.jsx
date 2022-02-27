@@ -75,7 +75,9 @@ function App() {
           <a href="#">Kirjaudu sisään</a><br /><br />
         </div>
         <div>
-          <Tile name='Käyttöohje' isOpen={true} 
+          <Tile name='Sovelluskohtaista' isOpen={true} 
+            iconOnly={!isOpen}/>
+          <Tile name='Käyttöohje' 
             iconOnly={!isOpen}/>
         </div>
       </Navigation>
