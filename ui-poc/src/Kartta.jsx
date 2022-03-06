@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { ThemeConsumer } from 'styled-components';
 
 const Root = styled('main')`
   user-select: none;
@@ -22,14 +22,19 @@ const Button = styled('button')`
   }
 `;
 
-const BUNDLE_LIST = [
+export const BUNDLE_LIST = [
+  'Haku',
   'Karttatasot',
-  'Metadatahaku',
-  'Julkaisija',
-  'jee'
+  'Karttaselitteet',
+  'Karttajulkaisu',
+  'Teemakartat',
+  'Analyysi',
+  'Käyttöohje',
+  'Koordinaattimuunnos',
+  'Inspire'
 ];
 
-const USER_BUNDLE_LIST = [
+export const USER_BUNDLE_LIST = [
   'Lisää kohde',
   'Lisää näkymä',
   'Lisää aineisto',
@@ -37,13 +42,6 @@ const USER_BUNDLE_LIST = [
   'Lisää tilasto',
   'Omat tiedot'
 ];
-/*
-Config:
-{
-    bundles: ["jee", "moi", "moi2"],
-    userBundles: ["personal", "addview"]
-}
-*/
 
 function Kartta({config = {}, onChange}) {
   const updateBundle = (name) => {
@@ -74,7 +72,18 @@ function Kartta({config = {}, onChange}) {
       });
     }
   };
-
+  const changeColor = (thing, color) => {
+    //console.log(thing, color);
+    
+      onChange({
+        ...config,
+        theme: {
+          ...config.theme,
+          [thing]: color
+        }
+      });
+  }
+  
   return (
     <Root>
     <h2>Käynnistä/sammuta bundleja</h2>
@@ -95,6 +104,10 @@ function Kartta({config = {}, onChange}) {
             {name}
           </Button></div>)
         })}
+
+    <h2>Vaihda värejä</h2>
+    Palkki: <input type="color" onChange={(e) => changeColor('bar', e.target.value)} value={config.theme.bar} /><br/>
+    Tile: <input type="color" onChange={(e) => changeColor('tile', e.target.value)} value={config.theme.tile} />
     </Root>
   )
 }
