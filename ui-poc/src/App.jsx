@@ -5,6 +5,7 @@ import UserNavi from './UserNavi';
 import Kartta, {BUNDLE_LIST, USER_BUNDLE_LIST} from './Kartta';
 import UserDetails from './UserDetails';
 import AppLogo from './ptilogo.svg';
+import Teemakartta from './Teemakartta'
 
 import './App.css'
 const Root = styled('div')`
@@ -32,9 +33,10 @@ const Logo = styled('div')`
 `;
 function App() {
   const [isLogged, login] = useState(false);
+  const [bundleMode, setBundleMode] = useState('');
   const [config, setConfig] = useState({
     bundles: BUNDLE_LIST,
-    userBundles: USER_BUNDLE_LIST,
+    userBundles: [], // USER_BUNDLE_LIST,
     theme: {
       tile: "#1ea8df",
       bar: "#aaaaaa"
@@ -45,8 +47,14 @@ function App() {
   const toggleTile = (name) => {
     if (name == tile) {
       openTile(false);
+      if (name === 'Teemakartat') {
+        setBundleMode();
+      }
     } else {
       openTile(name);
+      if (name === 'Teemakartat') {
+        setBundleMode(name);
+      }
     }
   }
   const toggleMydata = (name) => {
@@ -62,32 +70,41 @@ function App() {
         <Logo>
           <img src={AppLogo}/>
         </Logo>
-        {config.bundles.map(name => {
-          return (<Tile
-            name={name}
-            key={name}
+        {bundleMode && (
+          <Teemakartta onCancel={() => {
+            toggleTile('Teemakartat');
+          }} />
+        )}
+
+        {!bundleMode && (
+          <React.Fragment>
+          {config.bundles.map(name => {
+            return (<Tile
+              name={name}
+              key={name}
+              theme={config.theme}
+              iconOnly={!isOpen}
+              isOpen={name === tile}
+              onClick={() => toggleTile(name)}
+              />)
+          })}
+          <UserNavi
+            userBundles={config.userBundles}
             theme={config.theme}
-            iconOnly={!isOpen}
-            isOpen={name === tile}
-            onClick={() => toggleTile(name)}
-            />)
-        })}
-        <UserNavi
-          userBundles={config.userBundles}
-          theme={config.theme}
-          isOpen={isOpen}
-          onClick={toggleMydata} />
-        <br /><br />
-        <button onClick={() => setOpen(!isOpen)}>Toggle</button>
-        <br /><br />
-        
-        <UserDetails isLogged={isLogged} login={login} />
-        <div>
-          <Tile name='Sovelluskohtaista' isOpen={true} 
-            iconOnly={!isOpen}/>
-          <Tile name='Käyttöohje'
-            theme={config.theme}/>
-        </div>
+            isOpen={isOpen}
+            onClick={toggleMydata} />
+          <br /><br />
+          <button onClick={() => setOpen(!isOpen)}>Toggle</button>
+          <br /><br />
+          
+          <UserDetails isLogged={isLogged} login={login} />
+          <div>
+            <Tile name='Sovelluskohtaista' isOpen={true} 
+              iconOnly={!isOpen}/>
+            <Tile name='Käyttöohje'
+              theme={config.theme}/>
+          </div>
+          </React.Fragment>)}
       </Navigation>
       <Kartta config={config} onChange={setConfig} />
     </Root>
