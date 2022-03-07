@@ -5,7 +5,8 @@ import UserNavi from './UserNavi';
 import Kartta, {BUNDLE_LIST, USER_BUNDLE_LIST} from './Kartta';
 import UserDetails from './UserDetails';
 import AppLogo from './ptilogo.svg';
-import Teemakartta from './Teemakartta'
+import Teemakartta from './Teemakartta';
+import Toolbar from './Toolbar';
 
 import './App.css'
 const Root = styled('div')`
@@ -19,6 +20,11 @@ const Navigation = styled('nav')`
   &.icons {
     width: 50px;
   }
+`;
+
+const Block = styled('div')`
+border-top: 1px solid black;
+border-bottom: 1px solid black;
 `;
 
 const Logo = styled('div')`
@@ -70,7 +76,7 @@ function App() {
         <Logo>
           <img src={AppLogo}/>
         </Logo>
-        {bundleMode && (
+        {bundleMode === 'Teemakartat' && (
           <Teemakartta onCancel={() => {
             toggleTile('Teemakartat');
           }} />
@@ -98,13 +104,19 @@ function App() {
           <br /><br />
           
           <UserDetails isLogged={isLogged} login={login} />
-          <div>
+          <Block>
+            Sovelluksen hallinnassa
+          </Block>
             <Tile name='Sovelluskohtaista' isOpen={true} 
               iconOnly={!isOpen}/>
             <Tile name='Käyttöohje'
               theme={config.theme}/>
-          </div>
           </React.Fragment>)}
+          <Toolbar 
+            onCancel={() => {
+              toggleTile('Toolbar');
+              }} 
+            iconOnly={bundleMode === 'Toolbar'} />
       </Navigation>
       <Kartta config={config} onChange={setConfig} />
     </Root>
