@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>State of Oskari 8/2022</title>
+
+		<link rel="stylesheet" href="../reveal.js-4.1.3/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js-4.1.3/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js-4.1.3/dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js-4.1.3/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+            <img  src="images/oskari_k.svg" style="width: 70%; border:0; background-color:transparent; " />
+          <h2>Lightning tech 8/2022</h2>
+          <p>Sami Mäkinen - NLS Finland</p>
+        </section>
+        <section>
+          <h4>Oskari in GitHub</h4>
+          <div style="float:left; padding: 10px 40px"><img src="images/logo/github.png" style="height: 200px; border:0;" /></div>
+          <div style="float:left;" data-markdown>
+            - oskari-server
+              - sample-server-extension
+            - oskari-frontend
+              - sample-application
+              - oskari-frontend-contrib
+          </div>
+        </section>
+        <section data-markdown>
+          ### Vector feature improvements
+
+            - Visual style editor
+            - Feature selection
+            - Cleaned up code/style handling
+            - Performance improvements on styling
+            - Customize object data formatting/GFI
+            - Queryable vector features on map (with property/geom filters)
+        </section>
+        <!--
+           (service to toggle selection/get selected features)
+
+          -> gets features from different sources per layer
+          -> dev don't need to care if it's pushed at runtime or fetched from ogc api or by some other means
+          -> exposed to RPC
+        -->
+        <section data-markdown>
+          ### RPC
+          - Metadata queries
+          - Layer order changes
+          - Style changes (predefined styles for WMS etc, runtime vector features was already possible)
+          - Object data/GFI available without the UI (can be formatted on RPC-app)
+          - State changes (apps can now detect if user resets the map state)
+        </section>
+        <section data-markdown>
+          ### Theming
+          ```
+          Oskari.app.getTheming().setTheme({
+              color: {
+                  icon: '#FFFFFF',
+                  accent: '#0c3c62',
+                  primary: '#009fe3'
+              }
+          });
+          ```
+        </section>
+        <!--  (also at runtime) -->
+        <section data-markdown>
+          ### React progress
+          - Statistical maps legend / classification (metadata)
+          - Importing datasets
+          - Map legend
+          - Search
+          - My data -> pattern for modularity
+          
+          - PoC for Webpack 5: libraries blocked migration for now
+        </section>
+        <section data-markdown>
+          ### Component library
+          - Flyout/popup/banner
+          - StyleEditor
+          - LocalizationComponent
+          - Rich text editor
+          - FileInput
+          - ErrorBoundary
+          - Button, IconButton
+          - Link, Pagination
+        </section>
+        <!--  (AntD-based) -->
+        <section data-markdown>
+          ### Server
+          java 11 or 17?
+          config oskari-ext.properties -> env variables
+          full ogc capabilities related functionality rewrite
+          - service-capabilities for querying
+          - raw response no longer saved, processed in oskari_maplayer.capabilities as JSON
+          - vector feature properties
+          - DescribeLayer
+          WMTS-matrix set xml -> json and only for current projection
+          coverage data has been removed -> loaded separately when needed
+          
+          LayerAnalytics
+        </section>
+        <section data-markdown>
+            # Thank you!
+            - https://oskari.org
+            - https://github.com/oskariorg
+            - Oskari-user@lists.osgeo.org
+            - https://gitter.im/oskariorg/chat
+        </section>
+			</div>
+		</div>
+
+		<script src="../reveal.js-4.1.3/dist/reveal.js"></script>
+		<script src="../reveal.js-4.1.3/plugin/notes/notes.js"></script>
+		<script src="../reveal.js-4.1.3/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js-4.1.3/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
