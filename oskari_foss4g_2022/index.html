@@ -51,10 +51,10 @@
         -->
         <section data-markdown>
           ### RPC
+          - Object data/GFI available without the UI (can be formatted on RPC-app)
           - Metadata queries
           - Layer order changes
           - Style changes (predefined styles for WMS etc, runtime vector features was already possible)
-          - Object data/GFI available without the UI (can be formatted on RPC-app)
           - State changes (apps can now detect if user resets the map state)
         </section>
         <section data-markdown>
@@ -62,9 +62,9 @@
           ```
           Oskari.app.getTheming().setTheme({
               color: {
-                  icon: '#FFFFFF',
+                  primary: '#009fe3',
                   accent: '#0c3c62',
-                  primary: '#009fe3'
+                  icon: '#FFFFFF'
               }
           });
           ```
@@ -72,10 +72,10 @@
         <!--  (also at runtime) -->
         <section data-markdown>
           ### React progress
-          - Statistical maps legend / classification (metadata)
-          - Importing datasets
+          - Dataset import
           - Map legend
           - Search
+          - Statistical maps legend / classification
           - My data -> pattern for modularity
           
           - PoC for Webpack 5: libraries blocked migration for now
@@ -94,18 +94,17 @@
         <!--  (AntD-based) -->
         <section data-markdown>
           ### Server
-          java 11 or 17?
-          config oskari-ext.properties -> env variables
-          full ogc capabilities related functionality rewrite
+
+            - Config with env-variables
+            - Full rewrite of OGC capabilities handling
+            - DescribeLayer
+            - LayerAnalytics
+        </section>
+        <!--  
           - service-capabilities for querying
           - raw response no longer saved, processed in oskari_maplayer.capabilities as JSON
           - vector feature properties
-          - DescribeLayer
-          WMTS-matrix set xml -> json and only for current projection
-          coverage data has been removed -> loaded separately when needed
-          
-          LayerAnalytics
-        </section>
+         -->
         <section data-markdown>
             # Thank you!
             - https://oskari.org
