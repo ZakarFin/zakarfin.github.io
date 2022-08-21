@@ -33,30 +33,23 @@
           </div>
         </section>
         <section data-markdown>
-          ### Vector feature improvements
-
-            - Visual style editor
-            - Feature selection
-            - Cleaned up code/style handling
-            - Performance improvements on styling
-            - Customize object data formatting/GFI
-            - Queryable vector features on map (with property/geom filters)
+          ### React progress
+          - Dataset import
+          - Map legend
+          - Search
+          - Statistical maps legend / classification
+          - My data -> pattern for modularity
         </section>
-        <!--
-           (service to toggle selection/get selected features)
-
-          -> gets features from different sources per layer
-          -> dev don't need to care if it's pushed at runtime or fetched from ogc api or by some other means
-          -> exposed to RPC
-        -->
         <section data-markdown>
-          ### RPC
-          - Object data/GFI available without the UI (can be formatted on RPC-app)
-          - Metadata queries
-          - Layer order changes
-          - Style changes (predefined styles for WMS etc, runtime vector features was already possible)
-          - State changes (apps can now detect if user resets the map state)
+          ### Component library
+          - Flyout/Popup/Banner
+          - StyleEditor
+          - LocalizationComponent
+          - Rich text editor
+          - ErrorBoundary
+          - ... and many others
         </section>
+        <!--  (AntD-based) -->
         <section data-markdown>
           ### Theming
           ```
@@ -71,34 +64,37 @@
         </section>
         <!--  (also at runtime) -->
         <section data-markdown>
-          ### React progress
-          - Dataset import
-          - Map legend
-          - Search
-          - Statistical maps legend / classification
-          - My data -> pattern for modularity
-          
-          - PoC for Webpack 5: libraries blocked migration for now
+          ### Vector feature improvements
+
+            - Visual style editor
+            - Queryable vector features on map
+              - with property & geom filters
+            - Feature selection
+            - Performance improvements
         </section>
+        <!--
+           (service to toggle selection/get selected features)
+
+          -> gets features from different sources per layer
+          -> dev don't need to care if it's pushed at runtime or fetched from ogc api or by some other means
+          -> exposed to RPC
+        -->
         <section data-markdown>
-          ### Component library
-          - Flyout/popup/banner
-          - StyleEditor
-          - LocalizationComponent
-          - Rich text editor
-          - FileInput
-          - ErrorBoundary
-          - Button, IconButton
-          - Link, Pagination
+          ### RPC
+          - Object data/GFI available without the UI
+            - Can be formatted on RPC-app
+          - Metadata queries
+          - Layer order changes
+          - Style changes
+          - State changes
         </section>
-        <!--  (AntD-based) -->
         <section data-markdown>
           ### Server
 
-            - Config with env-variables
             - Full rewrite of OGC capabilities handling
             - DescribeLayer
             - LayerAnalytics
+            - Config with env-variables
         </section>
         <!--  
           - service-capabilities for querying
