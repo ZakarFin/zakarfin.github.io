@@ -17,6 +17,18 @@
         max-width: 90%;
         background-color: white;
       }
+      li.plus:before {
+        font-family: monospace;
+        content: "[+]";
+        color: green;
+        margin-right: 4px;
+    }
+      li.minus:before {
+        font-family: monospace;
+        content: "[-]";
+        color: red;
+        margin-right: 4px;
+    }
     </style>
 	</head>
 	<body>
@@ -24,19 +36,25 @@
 			<div class="slides">
         <section>
             <!--img  src="images/logo/nls-logo_en_rgb_nega.png" style="width: 70%; border:0; background-color:transparent; " / -->
-            <img  src="images/logo/MML_fi_rgb_m.png" style="width: 40%; padding-right: 5%; border:0; background-color:transparent; " />
-            <img  src="images/logo/heart-png-31.png" style="width: 12%; padding-right: 5%;  border:0; background-color:transparent; " />
+            <img  src="images/logo/MML_fi_rgb_m.png" style="width: 40%; border:0; background-color:transparent; " />
+            <img  src="images/lightning.svg" style="width: 16%; border:0; background-color:transparent; " />
             <img  src="images/logo/azure.svg" style="width: 20%; border:0; background-color:transparent; " />
           <h2>Azure @ MML</h2>
-          <p>Sami Mäkinen - NLS Finland</p>
+          <p>Sami Mäkinen - Maanmittauslaitos</p>
         </section>
         <section>
-          <h4>Jotain yleistä mml matskua tähän?</h4>
+          <h4>MML IT</h4>
+          <ul>
+            <li>~200 ihmistä</li>
+            <li>~200 IT-järjestelmää</li>
+            <li>~oma konesali</li>
+          </ul>
         </section>
         <section>
-            <h4>Alkuun</h4>
-            <ol>
-              <li>AZ-900 everyone!</li>
+            <h4>Azure askeleet</h4>
+            <ol start="0">
+              <li style="padding-bottom: 0.5em;">(M365)</li>
+              <li>AZ-900</li>
               <li>Pilvipilotti</li>
               <li>???</li>
               <li>Profit</li>
@@ -47,7 +65,7 @@
             <img src="images/demo2023.png" style="max-width: 80%; border:0;" />
         </section>
         <section>
-          <h4>Oskari in Azure</h4>
+          <h4>Oskari Azuressa</h4>
           <pre class="mermaid">
             C4Deployment
             
@@ -126,13 +144,47 @@
             UpdateRelStyle(appservice-oskari, redis, $offsetY="40", $offsetX="150")
           </pre>
         </section>
-
+        <section data-markdown>
+          ### Outouksia
+          - Kantayhteyden valinta app servicelle
+          - Kontin "reset" vaihtamalla tomcatin versiota
+          - lagisuus "kaikessa" koska web-ui
+          - lokituksen näkeminen
+          - työkoneelta yhteydet Azureen
+            - vs code
+            - oikein mikään muu ei
+            - az cli lopulta toimi eri kirjautumistavalla
+        </section>
+        <section data-markdown>
+          ### Koodimuutoksista?
+          - Redis yhteys (Jedis-kirjasto)
+          - JNDI context (kantayhteys)
+          - fronttitiedostot eri osoitteesta kuin server
+        </section>
         <section>
-          <h4>Devops jutui?</h4>
+          <h4>Infrastructure as code</h4>
+          <ul>
+            <li>bicep</li>
+            <ul style="list-style: none;">
+              <li class="plus">githubin issuet</li>
+              <li class="minus">arvailua / arm-template pohjalta arpominen</li>
+              <li class="minus">hitaus (aina välillä)</li>
+            </ul>
+          </ul>
+          <img src="images/deploy.png" style="height: 150px; border:0;" />
+        </section>
+        <section data-markdown>
+          ### Ajatuksia
+          - Bicep-modulikirjasto?
+          - Rediksen korvaaminen?
+          - Kehitystiimille kuluihin näkyvyys?
+          - Kehitystiimin oikeudet?
+            - Voiko tehdä esim. resource groupin?
+            - Kuka tekee devopsille service principalin?
+            - Kuka ylipäätään tekee mitäkin?
         </section>
         <section>
           <h4>Application components</h4>
-
           <table>
             <tr>
               <td><img src="images/logo/github.png" style="height: 150px; border:0;" /></td>
@@ -152,7 +204,7 @@
               <td style="vertical-align: middle;">
                 <div data-markdown>
                   - config repository
-                  - azuren pipelinet tms
+                  - devops pipeline / bicep
                   </div>
               </td>
               <td><img src="images/logo/gitlab-logo-200.svg" style="height: 150px; border:0;" /></td>
@@ -160,27 +212,28 @@
           </table>
         </section>
         <section data-markdown>
-          ### Outouksia
-          - Kantayhteyden valinta app servicelle
-          - Kontin "reset" vaihtamalla tomcatin versiota
-          - lagisuus "kaikessa" koska web-ui
-          - lokituksen näkeminen
-          - omalta koneelta yhteydet azureen (vs code joo, oikein mikään muu ei, az cli eri kirjautumistavalla)
-        </section>
-        <section data-markdown>
-          ### Koodimuutoksista?
-          - Redis yhteys (Jedis-kirjasto)
-          - JNDI context (kantayhteys)
-          - frontti eri osoitteesta kuin muu server
+          ### Alustatasolla
+          - oma tenant
+          - express route
+          - Azure Devops / Valtori pilviperusta käyttöönotto
+             - testi -> tuotanto
+             - Management group hierarkia, Compliance paketti tehty
+          - viikottaiset palaverit asiantuntijatasolla (mml-valtori-kumppani)
+
         </section>
         <section data-markdown>
           ### Muuta
-
-          - tiedonluokittelu blockerina
-          - lokitus app insightsiin tms?
-          - subscriptionit/management groupit -> vnetit -> ip:tä rajatusti
-          - siirrettävyys omaan/toiseen konesaliin / kubernetes?
+          - tiedon luokittelu blockerina
+          - subscriptionit/management groupit
+            - vnetit -> ip:tä rajatusti
+          - sovelluslokit
+        </section>
+        <section data-markdown>
+          ### Lisätavoitteita
+          - siirrettävyys omaan/toiseen konesaliin
+          - kubernetes?
           - kontit ja base image
+          - pilvitiimi
         </section>
         
         <section data-markdown>
