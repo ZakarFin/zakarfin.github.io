@@ -22,7 +22,7 @@
         content: "[+]";
         color: green;
         margin-right: 4px;
-    }
+      }
       li.minus:before {
         font-family: monospace;
         content: "[-]";
@@ -39,7 +39,7 @@
             <img  src="images/logo/MML_fi_rgb_m.png" style="width: 40%; border:0; background-color:transparent; " />
             <img  src="images/lightning.svg" style="width: 16%; border:0; background-color:transparent; " />
             <img  src="images/logo/azure.svg" style="width: 20%; border:0; background-color:transparent; " />
-          <h2>Azure @ MML</h2>
+          <h2>Azure kokemuksia</h2>
           <p>Sami Mäkinen - Maanmittauslaitos</p>
         </section>
         <section>
@@ -76,7 +76,7 @@
                 Container(appservice-oskari, "Oskari", "")
                 Container(storage, "Static file share", "")
                 Boundary(vnet, "vnet", ""){
-                    Container(appservice-geoserver, "Geoserver", "")
+                    Container(appservice-geoserver, "GeoServer", "")
             
                     ContainerDb(postgres, "PostgreSQL", "Main DB", "Contains application config and content")
                     ContainerDb(redis, "Cache", "Cache & cluster messaging", "Stores user sessions, statistical data cache, messaging between cluster nodes")
@@ -145,18 +145,18 @@
           </pre>
         </section>
         <section data-markdown>
-          ### Outouksia
-          - Kantayhteyden valinta app servicelle
-          - Kontin "reset" vaihtamalla tomcatin versiota
-          - lagisuus "kaikessa" koska web-ui
+          ### Outouksia / haasteita
+          - Kantayhteyden valinta App Servicelle
+          - Kontin "reset" vaihtamalla Tomcatin versiota
+          - lagisuus "kaikessa" / maltti on valttia
           - lokituksen näkeminen
           - työkoneelta yhteydet Azureen
-            - vs code
+            - VS Code
             - oikein mikään muu ei
             - az cli lopulta toimi eri kirjautumistavalla
         </section>
         <section data-markdown>
-          ### Koodimuutoksista?
+          ### Koodimuutoksista
           - Redis yhteys (Jedis-kirjasto)
           - JNDI context (kantayhteys)
           - fronttitiedostot eri osoitteesta kuin server
@@ -164,10 +164,10 @@
         <section>
           <h4>Infrastructure as code</h4>
           <ul>
-            <li>bicep</li>
+            <li>Bicep</li>
             <ul style="list-style: none;">
-              <li class="plus">githubin issuet</li>
-              <li class="minus">arvailua / arm-template pohjalta arpominen</li>
+              <li class="plus">GitHubin issuet</li>
+              <li class="minus">arvailua / ARM template pohjalta arpominen</li>
               <li class="minus">hitaus (aina välillä)</li>
             </ul>
           </ul>
@@ -180,7 +180,7 @@
           - Kehitystiimille kuluihin näkyvyys?
           - Kehitystiimin oikeudet?
             - Voiko tehdä esim. resource groupin?
-            - Kuka tekee devopsille service principalin?
+            - Kuka tekee DevOps Service Principalin?
             - Kuka ylipäätään tekee mitäkin?
         </section>
         <section>
@@ -214,8 +214,8 @@
         <section data-markdown>
           ### Alustatasolla
           - oma tenant
-          - express route
-          - Azure Devops / Valtori pilviperusta käyttöönotto
+          - ExpressRoute
+          - Azure DevOps / Valtori pilviperusta käyttöönotto
              - testi -> tuotanto
              - Management group hierarkia, Compliance paketti tehty
           - viikottaiset palaverit asiantuntijatasolla (mml-valtori-kumppani)
