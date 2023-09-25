@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>MML Azure kokemuksia 9/2023</title>
+
+		<link rel="stylesheet" href="../reveal.js-4.1.3/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js-4.1.3/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js-4.1.3/dist/theme/black.css">
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js-4.1.3/plugin/highlight/monokai.css">
+    <style>
+      pre.mermaid {
+        max-height: 90%;
+        max-width: 90%;
+        background-color: white;
+      }
+      li.plus:before {
+        font-family: monospace;
+        content: "[+]";
+        color: green;
+        margin-right: 4px;
+      }
+      li.minus:before {
+        font-family: monospace;
+        content: "[-]";
+        color: red;
+        margin-right: 4px;
+    }
+    </style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section>
+            <!--img  src="images/logo/nls-logo_en_rgb_nega.png" style="width: 70%; border:0; background-color:transparent; " / -->
+            <img  src="images/logo/MML_fi_rgb_m.png" style="width: 40%; border:0; background-color:transparent; " />
+            <img  src="images/lightning.svg" style="width: 16%; border:0; background-color:transparent; " />
+            <img  src="images/logo/azure.svg" style="width: 20%; border:0; background-color:transparent; " />
+          <h2>Azure kokemuksia</h2>
+          <p>Sami Mäkinen - Maanmittauslaitos</p>
+        </section>
+        <section>
+          <h4>MML IT</h4>
+          <ul>
+            <li>~200 ihmistä</li>
+            <li>~200 IT-järjestelmää</li>
+            <li>~oma konesali</li>
+          </ul>
+        </section>
+        <section>
+          <h4>Keneen vaikuttaa?</h4>
+          <ul>
+            <li>infra-porukka</li>
+            <li>omat koodarit ja arkkitehdit</li>
+            <li>konsultit</li>
+            <li>sovellustuki?</li>
+            <li>tietoturvaporukka?</li>
+          </ul>
+        </section>
+        <section>
+            <h4>Azure askeleet</h4>
+            <ol start="0">
+              <li style="padding-bottom: 0.5em;">(M365)</li>
+              <li>AZ-900</li>
+              <li>Pilvipilotti</li>
+              <li>???</li>
+              <li>Profit</li>
+            </ol>
+        </section>
+        <section>
+            <h4>demo.oskari.org</h4>
+            <img src="images/demo2023.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
+          <h4>Oskari Azuressa</h4>
+          <pre class="mermaid">
+            C4Deployment
+            
+            Person(user, "User", "")
+            
+            System_Boundary(azure, "Azure", ""){
+            
+                Container(appservice-oskari, "Oskari", "")
+                Container(storage, "Static file share", "")
+                Boundary(vnet, "vnet", ""){
+                    Container(appservice-geoserver, "GeoServer", "")
+            
+                    ContainerDb(postgres, "PostgreSQL", "Main DB", "Contains application config and content")
+                    ContainerDb(redis, "Cache", "Cache & cluster messaging", "Stores user sessions, statistical data cache, messaging between cluster nodes")
+                }
+            }
+            
+            
+            Rel(user, appservice-oskari, "Uses", "HTTPS")
+            Rel(user, storage, "Uses", "HTTPS")
+            Rel(appservice-oskari, storage, "Delivers", "")
+            Rel(appservice-oskari, appservice-geoserver, "User content", "HTTPS")
+            Rel(appservice-oskari, postgres, "Content and config", "JDBC")
+            Rel(appservice-geoserver, postgres, "User content", "JDBC")
+            Rel(appservice-oskari, redis, "Sessions and cache", "TCP")
+            
+            UpdateRelStyle(appservice-oskari, storage, $offsetY="-10", $offsetX="-20")
+            UpdateRelStyle(user, appservice-oskari, $offsetY="-40", $offsetX="-60")
+            UpdateRelStyle(user, storage, $offsetY="-40", $offsetX="-120")
+            
+            UpdateRelStyle(appservice-oskari, appservice-geoserver, $offsetY="30", $offsetX="-80")
+            UpdateRelStyle(appservice-oskari, postgres, $offsetY="30", $offsetX="40")
+            UpdateRelStyle(appservice-geoserver, postgres, $offsetY="20", $offsetX="-40")
+            UpdateRelStyle(appservice-oskari, redis, $offsetY="40", $offsetX="150")
+          </pre>
+        </section>
+        <section>
+          <h4>Application Gateway eteen</h4>
+          <pre class="mermaid">
+            C4Deployment
+            
+            Person(user, "User", "")
+            
+            System_Boundary(azure, "Azure", ""){
+              Container(firewall, "Application Gateway", "")
+              Boundary(vnet, "vnet?", ""){
+            
+                    Container(appservice-oskari, "Oskari", "")
+                    Container(storage, "Static file share", "")
+                    Boundary(vnet2, "Sisäiset palvelut", ""){
+                      Container(appservice-geoserver, "Geoserver", "")
+              
+                      ContainerDb(postgres, "PostgreSQL", "Main DB", "Contains application config and content")
+                      ContainerDb(redis, "Cache", "Cache & cluster messaging", "Stores user sessions, statistical data cache, messaging between cluster nodes")
+                    }
+            }
+          }
+            
+            
+            Rel(user, firewall, "Uses", "HTTPS")
+            Rel(firewall, appservice-oskari, "Uses", "HTTPS")
+            Rel(firewall, storage, "Uses", "HTTPS")
+            Rel(appservice-oskari, storage, "Delivers", "")
+            Rel(appservice-oskari, appservice-geoserver, "User content", "HTTPS")
+            Rel(appservice-oskari, postgres, "Content and config", "JDBC")
+            Rel(appservice-geoserver, postgres, "User content", "JDBC")
+            Rel(appservice-oskari, redis, "Sessions and cache", "TCP")
+            
+            UpdateRelStyle(appservice-oskari, storage, $offsetY="-10", $offsetX="-20")
+            UpdateRelStyle(user, appservice-oskari, $offsetY="-40", $offsetX="-60")
+            UpdateRelStyle(user, storage, $offsetY="-40", $offsetX="-120")
+            
+            UpdateRelStyle(appservice-oskari, appservice-geoserver, $offsetY="30", $offsetX="-80")
+            UpdateRelStyle(appservice-oskari, postgres, $offsetY="30", $offsetX="40")
+            UpdateRelStyle(appservice-geoserver, postgres, $offsetY="20", $offsetX="-40")
+            UpdateRelStyle(appservice-oskari, redis, $offsetY="40", $offsetX="150")
+          </pre>
+        </section>
+        <section data-markdown>
+          ### Outouksia / haasteita
+          - lagisuus "kaikessa" / maltti on valttia
+          - lokituksen näkeminen
+          - työkoneelta yhteydet Azureen
+            - VS Code
+            - oikein mikään muu ei
+            - az cli lopulta toimi eri kirjautumistavalla
+        </section>
+        <section>
+          <h4>Outouksia / haasteita</h4>
+          <img src="images/jumikorjaus.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
+          <h4>Outouksia / haasteita</h4>
+          <img src="images/konffit.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section>
+          <h4>Outouksia / haasteita</h4>
+          <img src="images/kantavalinta.png" style="max-width: 80%; border:0;" />
+        </section>
+        <section data-markdown>
+          ### Koodimuutoksia
+          - Redis yhteys (Jedis-kirjasto)
+          - JNDI context (kantayhteys)
+          - fronttitiedostot eri osoitteesta kuin server
+          - https://12factor.net/
+        </section>
+        <section>
+          <h4>Infrastructure as code</h4>
+          <ul>
+            <li>Bicep</li>
+            <ul style="list-style: none;">
+              <li class="plus">GitHubin issuet</li>
+              <li class="minus">arvailua / ARM template pohjalta arpominen</li>
+              <li class="minus">hitaus (aina välillä)</li>
+            </ul>
+          </ul>
+          <img src="images/deploy.png" style="height: 150px; border:0;" />
+        </section>
+        <section data-markdown>
+          ### Ajatuksia
+          - Bicep-modulikirjasto?
+          - Rediksen korvaaminen?
+          - Kehitystiimille kuluihin näkyvyys?
+          - Kehitystiimin oikeudet?
+            - Voiko tehdä esim. resource groupin?
+            - Kuka tekee DevOps Service Principalin?
+            - Kuka ylipäätään tekee mitäkin?
+        </section>
+        <section>
+          <h4>DevOps / Application components</h4>
+          <table>
+            <tr>
+              <td><img src="images/logo/github.png" style="height: 150px; border:0;" /></td>
+              <td>
+                <div data-markdown>
+                  - oskari-server
+                    - sample-server-extension
+                  - oskari-frontend
+                    - sample-application
+                  </div>
+              </td>
+            </tr>
+          </table>
+          <hr/>
+          <table>
+            <tr>
+              <td style="vertical-align: middle;">
+                <div data-markdown>
+                  - config repository
+                  - devops pipeline / bicep
+                  </div>
+              </td>
+              <td><img src="images/logo/gitlab-logo-200.svg" style="height: 150px; border:0;" /></td>
+            </tr>
+          </table>
+        </section>
+        <section data-markdown>
+          ### Muuta
+          - tiedon luokittelu blockerina
+          - subscriptionit/management groupit
+          - vnetit -> ip:tä rajatusti
+          - sovelluslokit / Log Analytics
+          - Key Vault
+        </section>
+        <section data-markdown>
+          ### Lisätavoitteita
+          - siirrettävyys omaan/toiseen konesaliin
+          - Kubernetes?
+          - kontit / base image
+          - pilvitiimi
+        </section>
+        
+        <section data-markdown>
+            # Thank you!
+        </section>
+			</div>
+		</div>
+
+		<script src="../reveal.js-4.1.3/dist/reveal.js"></script>
+		<script src="../reveal.js-4.1.3/plugin/notes/notes.js"></script>
+		<script src="../reveal.js-4.1.3/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js-4.1.3/plugin/highlight/highlight.js"></script>
+    <!-- script src="https://cdn.jsdelivr.net/npm/mermaid@9.4.3/dist/mermaid.min.js"></script -->
+    <script src="../mermaid-9.4.3/dist/mermaid.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+
+      mermaid.initialize({
+          startOnLoad:true,
+          htmlLabels:true,
+          theme: 'base',
+          themeVariables: {
+            darkMode: false
+          },
+          flowchart: {
+              useMaxWidth:false,
+          }
+      });
+		</script>
+	</body>
+</html>
