@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>State of Oskari 6/2024</title>
+
+		<link rel="stylesheet" href="../reveal.js-5.1.0/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js-5.1.0/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js-5.1.0/dist/theme/white.css">
+<style>
+  .slide-background-content {
+    background-image: url('images/swim_logo_oskari_black.svg'), url('images/footer_yellow.svg');
+  }
+
+</style>
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js-5.1.0/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-background-position="78% 93%, 100% 160%" data-background-size="15%, 100% 50%">
+          <img alt="Oskari logo" src="images/oskari_logo_horizontal_black_rgb.svg" style="margin-top:-3em; width: 100%; border:0; " />
+          <h2 style="margin-top:-1em;">Year in review 6/2024</h2>
+          <p>Sami Mäkinen - NLS Finland</p>
+        </section>
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>National geoportal Finland</h4>
+            <img src="images/pti_2024.png" style="max-height:80%; border:0;" />
+        </section>
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>History in nutshell</h4>
+            <ol>
+              <li>National geoportal</li>
+              <li>Open source it</li>
+              <li>???</li>
+              <li>Profit</li>
+            </ol>
+        </section>
+        <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          ### Oskari
+          - Server: Java built with Maven
+          - Frontend: JS built with Webpack
+          - Requires:
+            - PostgreSQL (PostGIS)
+            - Redis
+            - (Spatial Data Infrastructure)
+        </section>
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          <h4>Application components</h4>
+
+          <p data-markdown>
+            - For building web mapping software
+            - APIs and extension points on multiple levels
+          </p>
+          <hr/>
+          <div style="float:left; padding: 10px 40px"><img src="images/logo/github-mark.svg" style="height: 200px; border:0;" /></div>
+          <div style="float:left;" data-markdown>
+            - oskari-server
+              - sample-server-extension
+            - oskari-frontend
+              - oskari-frontend-contrib
+              - sample-application</div>
+        </section>
+
+
+<section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  ### Main points
+  
+  - Publisher / embedded maps
+  - Theming / Customization
+  - Mobile support
+  - Other stuff
+  </section>
+<section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+# Thank you!
+- https://oskari.org
+- https://github.com/oskariorg
+- Oskari-user@lists.osgeo.org
+- https://gitter.im/oskariorg/chat
+</section>
+			</div>
+		</div>
+
+		<script src="../reveal.js-5.1.0/dist/reveal.js"></script>
+		<script src="../reveal.js-5.1.0/plugin/notes/notes.js"></script>
+		<script src="../reveal.js-5.1.0/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js-5.1.0/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
