@@ -69,11 +69,46 @@
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   ### Main points
   
-  - Publisher / embedded maps
-  - Theming / Customization
   - Mobile support
+  - Theming / Customization
+  - RPC documentation
+  - Geoserver removed
   - Other stuff
-  </section>
+</section>
+<section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  ### Mobile support
+  - Ability to:
+    - leave out bundles for smaller screens
+    - add bundles for smaller screens
+
+```properties
+# Drop bundles for mobile users
+desktopOnly.bundles = userguide, publisher, ...
+# Add bundles for mobile users
+mobileOnly.bundles = mobileuserguide
+```
+</section>
+<section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  ### Modifying functionalities
+  - Based on screen size:
+    - navigation is toggleable on small screens
+    - windows not draggable -> fills screen
+    - elements/layout flow better
+  - Based on device capabilities:
+    - functionalities requiring hovering not shown when there is no mouse-like device present
+    - leave out parts of functionality (zoombox)
+- POC for detecting screen zoom
+</section>
+<section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  ### Tools for developers
+    - Oskari.dom
+        - showNavigation(bln)
+        - isNavigationVisible()
+        - getNavigationEl()
+    - Oskari.util
+      - isMobile(bln)
+      - mouseExists()
+</section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
 # Thank you!
 - https://oskari.org
