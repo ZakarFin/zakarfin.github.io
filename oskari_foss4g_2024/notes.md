@@ -6,17 +6,18 @@
 https://github.com/oskariorg/oskari-documentation/
 https://github.com/oskariorg/oskari-documentation-site/
 
+Accessibility 
 
 
 What we will be working on next:
 Community:
-New website & improving documentation
-Instructions for Procurement
+- New website & improving documentation
+- Instructions for Procurement
 Developing Oskari:
-Finishing touches for React (map publisher)
-Combining own places and datasets for easier maintenance
-Maintaining a large number (1000>) of map layers: Improving admin tools and especially reporting tools for Oskari’s admin users
-Accessibility of published maps
+- Finishing touches for React (map publisher)
+- Combining own places and datasets for easier maintenance
+- Maintaining a large number (1000>) of map layers: Improving admin tools and especially reporting tools for Oskari’s admin users
+- Accessibility of published maps
 
 --------------
 2.12 & 2.13

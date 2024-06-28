@@ -69,21 +69,24 @@
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   ### Main points
   
+  2 releases, 5 patches
+  (2.11.1-2.13.2)
+
   - Mobile support
   - Theming / Customization
-  - RPC documentation
-  - Geoserver removed
+  - Combining user generated content
+  - Documentation
   - Other stuff
 </section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   ### Mobile support
-  - Ability to:
+  - Server-side ability to:
     - leave out bundles for smaller screens
     - add bundles for smaller screens
 
 ```properties
 # Drop bundles for mobile users
-desktopOnly.bundles = userguide, publisher, ...
+desktopOnly.bundles = printout, userguide, ...
 # Add bundles for mobile users
 mobileOnly.bundles = mobileuserguide
 ```
@@ -92,12 +95,12 @@ mobileOnly.bundles = mobileuserguide
   ### Modifying functionalities
   - Based on screen size:
     - navigation is toggleable on small screens
-    - windows not draggable -> fills screen
-    - elements/layout flow better
+    - "windows" fills screen
+    - elements/layout flow & interact better
   - Based on device capabilities:
-    - functionalities requiring hovering not shown when there is no mouse-like device present
+    - hover-based functionalities
     - leave out parts of functionality (zoombox)
-- POC for detecting screen zoom
+- PoC for detecting and reseting screen zoom
 </section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   ### Tools for developers
@@ -108,6 +111,22 @@ mobileOnly.bundles = mobileuserguide
     - Oskari.util
       - isMobile(bln)
       - mouseExists()
+</section>
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  <h4>UI rewrite / featuredata</h4>
+  <img src="images/featuredata.png" style="max-height:80%; border:0;" />
+</section>
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  <h4>UI rewrite / admin-permissions</h4>
+  <img src="images/admin-permissions.png" style="max-height:80%; border:0;" />
+</section>
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  <h4>UI rewrite / metadatasearch</h4>
+  <img src="images/metadatasearch.png" style="max-height:80%; border:0;" />
+</section>
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  <h4>UI rewrite / statsgrid</h4>
+  <img src="images/statsgrid.png" style="max-height:80%; border:0;" />
 </section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
 # Thank you!
