@@ -8,6 +8,11 @@ https://github.com/oskariorg/oskari-documentation-site/
 
 Accessibility 
 
+abstract:
+- Combining user generated content
+- UI rewrite progress
+- Supporting mobile devices
+
 
 What we will be working on next:
 Community:

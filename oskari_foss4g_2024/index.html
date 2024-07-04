@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>State of Oskari 6/2024</title>
+    <title>State of Oskari 7/2024</title>
 
 		<link rel="stylesheet" href="../reveal.js-5.1.0/dist/reset.css">
 		<link rel="stylesheet" href="../reveal.js-5.1.0/dist/reveal.css">
@@ -23,21 +23,21 @@
 			<div class="slides">
         <section data-background-position="78% 93%, 100% 160%" data-background-size="15%, 100% 50%">
           <img alt="Oskari logo" src="images/oskari_logo_horizontal_black_rgb.svg" style="margin-top:-3em; width: 100%; border:0; " />
-          <h2 style="margin-top:-1em;">Year in review 6/2024</h2>
+          <h2 style="margin-top:-1em;">Year in review 7/2024</h2>
           <p>Sami Mäkinen - NLS Finland</p>
         </section>
         <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
-            <h4>National geoportal Finland</h4>
-            <img src="images/pti_2024.png" style="max-height:80%; border:0;" />
-        </section>
-        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
-            <h4>History in nutshell</h4>
+            <h3>History in nutshell</h3>
             <ol>
               <li>National geoportal</li>
               <li>Open source it</li>
               <li>???</li>
               <li>Profit</li>
             </ol>
+        </section>
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>National geoportal Finland</h4>
+            <img src="images/pti_2024.png" style="max-height:80%; border:0;" />
         </section>
         <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
           ### Oskari
@@ -91,6 +91,9 @@ desktopOnly.bundles = printout, userguide, ...
 mobileOnly.bundles = mobileuserguide
 ```
 </section>
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+    <img src="images/mobile.png" style="max-height:80%; border:0;" />
+</section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   ### Modifying functionalities
   - Based on screen size:
@@ -102,15 +105,23 @@ mobileOnly.bundles = mobileuserguide
     - leave out parts of functionality (zoombox)
 - PoC for detecting and reseting screen zoom
 </section>
+
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  <img src="images/announcements.png" style="max-width:900px; border:0;" />
+</section>
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+    <img src="images/xy.png" style="max-width:900px; border:0;" />
+</section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   ### Tools for developers
-    - Oskari.dom
-        - showNavigation(bln)
-        - isNavigationVisible()
-        - getNavigationEl()
-    - Oskari.util
-      - isMobile(bln)
-      - mouseExists()
+  - Component library
+  - Oskari.dom
+      - showNavigation(bln)
+      - isNavigationVisible()
+      - getNavigationEl()
+  - Oskari.util
+    - isMobile(bln)
+    - mouseExists()
 </section>
 <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   <h4>UI rewrite / statsgrid</h4>
@@ -134,26 +145,59 @@ mobileOnly.bundles = mobileuserguide
 </section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   ### User generated content
-  - drawn (my places)
+  - Drawn (my places)
     - fixed properties
     - editable
-  - imported (userlayers)
+  - Imported (userlayers)
     - flexible properties
     - not editable
-  - result of analysis
+  - Result of analysis
     - inherits from source layer
 </section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
   ### User generated content
-  - Direct DB queries
-  - GeoServer removed
+  - Direct DB queries to have more wiggle room
+    - GeoServer removed
+    - Less maintenance on servers
+  - Next steps:
+    - Migrate to same format
+    - Migrate to common IDs
+    - Frontend changes
 </section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
-  ### Documentation
-  - New site coming
-    - https://github.com/oskariorg/oskari-documentation/
-    - https://github.com/oskariorg/oskari-documentation-site/
-  - RPC-documentation with online code-editor
+  ### Theming
+  - More components now use theming variables:
+    - Time series UI, text selection etc
+  - Banner works better with dark themes
+  - Customizable default vector layer style
+</section>
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  <h3>Documentation</h3>
+
+  <p data-markdown>
+    - New look & feel
+    - Standalone content repo
+  </p>
+  <hr/>
+  <div style="float:left; padding: 10px 40px"><img src="images/logo/github-mark.svg" style="height: 200px; border:0;" /></div>
+  <div style="float:left;" data-markdown>
+    - https://github.com/oskariorg/
+      - oskari-documentation
+      - oskari-documentation-site
+  </div>
+</section>
+<section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  <h4>RPC-documentation with online code-editor</h4>
+  <img src="images/rpc.png" style="max-width:950px; border:0;" />
+</section>
+<section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+  ### Other
+  - DescribeLayer XHR
+    - async layer details
+  - Dependency updates
+  - Some lib changes:
+    - `enzyme` -> `testing-library`
+    - `commons-dbcp2` -> `HikariCP`
 </section>
 <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
 # Thank you!
