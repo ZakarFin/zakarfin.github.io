@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>DevALPO 1/2026</title>
+
+		<link rel="stylesheet" href="../reveal.js-5.2.1/dist/reset.css">
+		<link rel="stylesheet" href="../reveal.js-5.2.1/dist/reveal.css">
+		<link rel="stylesheet" href="../reveal.js-5.2.1/dist/theme/white.css">
+<style>
+  .slide-background-content {
+    background-image: url('images/logo/swim_logo_oskari_black.svg'), url('images/logo/footer_yellow.svg');
+  }
+  .reveal pre {
+    width: 100% !important;
+  }
+  .reveal code {
+    color: #f92672;
+}
+
+</style>
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../reveal.js-5.2.1/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-background-position="78% 93%, 100% 160%" data-background-size="15%, 100% 50%">
+          <img alt="Oskari logo" src="images/logo/oskari_logo_horizontal_black_rgb.svg" style="margin-top:-3em; width: 100%; border:0; " />
+          <h2 style="margin-top:-1em;">Oskari 2026</h2>
+          <p>Sami Mäkinen - Maanmittauslaitos</p>
+        </section>
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h3>Lyhyt historia</h3>
+            <ol>
+              <li>Syntynyt Paikkatietoikkunasta</li>
+              <li>Avointa lähdekoodia</li>
+              <li>???</li>
+              <li data-markdown>`$` / `£` / `€`</li>
+            </ol>
+        </section>
+
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          <h4>Avointa lähdekoodia</h4>
+
+          <div style="float:right; padding: 10px 40px"><img src="images/logo/github-mark.svg" style="height: 200px; border:0;" /></div>
+          <div style="float:right;" data-markdown>
+            GitHub.com/oskariorg
+            - sample-application
+              - oskari-frontend
+              - oskari-frontend-contrib
+            - sample-server-extension
+              - oskari-server
+            </div>
+        </section>
+
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>Esimerkkipalvelu</h4>
+            <img src="images/demo.oskari.collection.png" style="max-height:80%; border:0;" />
+        </section>
+
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>Oskari-pohjaisen palvelun rakenne</h4>
+            <img src="images/rakenne.png" style="max-height:80%; border:0;" />
+        </section>
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>Rakennelohkot</h4>
+            <img src="images/rakenne2.png" style="max-height:80%; border:0;" />
+        </section>
+
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>Tietolähteet</h4>
+            <img src="images/datasources.png" style="height: 10em; max-height:80%; border:0;" />
+        </section>
+
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>Palveluun määritellyt <code>frontend</code>-sovellukset</h4>
+            <img src="images/sovellukset.png" style="max-height:80%; border:0;" />
+            <p>== mitä pakataan mukaan (koodit -> kielistykset)</p>
+        </section>
+
+        <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          ### Frontend - `sovellus` / main.js
+          Jossa sovellus esim. `geoportal` tai `embedded`.
+          ```javascript
+          import 'oskari-bundle!oskari-frontend/bundles/mapping/mapmodule/map2d_ol';
+          import 'oskari-bundle!oskari-frontend/bundles/framework/layerlist';
+
+          import 'oskari-bundle!../../bundles/sample-info';
+          ```
+          - `oskari.min.js`
+          - `oskari_lang_[kielikoodi].js`
+        </section>
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>Frontend - sivun lataus</h4>
+          <div style="float:right; padding: 10px 40px"><img src="images/startup.png" style="height: 10em; max-height:80%; border:0;" /></div>
+          <div style="float:right;text-align: left;">
+            <h4>Input</h4>
+            <ul>
+              <li>UUID</li>
+              <li>kieli</li>
+            </ul>
+            <hr/>
+            <h4>Output</h4>
+            <ul>
+              <li>mikä sovellus</li>
+              <li>mikä sivupohja</li>
+              <li>bundlet (config + state)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>Sivupohjat</h4>
+            <img src="images/demo.oskari.collection.png" style="max-height:80%; border:0;" />
+        </section>
+
+        
+        <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          ### Frontend - bundle
+          
+          #### index.js
+          ```javascript
+          import { MyBundleInstance } from './instance';
+          Oskari.bundle('hello-world', () => new MyBundleInstance());
+          ```
+          
+          #### instance.js
+          ```javascript
+          import { BasicBundleInstance } from 'oskari-ui/BasicBundleInstance';
+
+          class MyBundleInstance extends BasicBundleInstance {
+              start () {
+                  console.log('Hello world')
+              }
+          }
+          ```
+        </section>
+        
+        <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          ### Frontend - perusteet
+          
+          #### eventin kuuntelu
+          ```javascript
+          this.on('MapClickedEvent', (evt) => console.log(evt));
+          ```
+          #### kielistyksen käyttö
+          ```javascript
+          const teksti = this.loc('kielistys.avain');
+          const paramsTeksti = this.loc('kielistys.parametroitu', {
+            foo: 'bar'
+          });
+          ```
+        </section>
+
+      <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+        ### Tulossa
+        - Dokumentaation sisältö?
+        - Käyttäjän aineistojen yhdistäminen
+        - Java 8 -> 17
+        - Työpaja devaajille alkuvuodesta 2025
+        - Oskarin verkostopäivä toukokuu 2025
+        - Tilaajan ohje ja blogiartikkeleita Oskarista eri näkökulmista oskari.orgiin
+      </section>
+      <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+      # Kiitos!
+      - https://oskari.org
+      - https://github.com/oskariorg
+      - Oskari-user@lists.osgeo.org
+      - https://gitter.im/oskariorg/chat
+      </section>
+			</div>
+		</div>
+
+		<script src="../reveal.js-5.2.1/dist/reveal.js"></script>
+		<script src="../reveal.js-5.2.1/plugin/notes/notes.js"></script>
+		<script src="../reveal.js-5.2.1/plugin/markdown/markdown.js"></script>
+		<script src="../reveal.js-5.2.1/plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
