@@ -66,7 +66,7 @@
             <img src="images/rakenne.png" style="max-height:80%; border:0;" />
         </section>
         <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
-            <h4>Rakennelohkot</h4>
+            <h4>Sipulin kerrokset</h4>
             <img src="images/rakenne2.png" style="max-height:80%; border:0;" />
         </section>
 
@@ -76,7 +76,7 @@
         </section>
 
         <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
-            <h4>Palveluun määritellyt <code>frontend</code>-sovellukset</h4>
+            <h4>Palvelukohtainen <code>frontend</code>-sovelluspaketointi</h4>
             <img src="images/sovellukset.png" style="max-height:80%; border:0;" />
             <p>== mitä pakataan mukaan (koodit -> kielistykset)</p>
         </section>
@@ -117,7 +117,17 @@
             <img src="images/demo.oskari.collection.png" style="max-height:80%; border:0;" />
         </section>
 
-        
+        <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          ## Frontend - 2026
+          
+          - Webpack `loader`
+            - bundle "rekisteröinti" toteutuksen rinnalla
+            - aiemmin `packages` alla
+            - kielistykset `./resources/locale/*.js`
+          - bundle-rekisteröinti
+            - `bundle id` -> mitä tehdään kun bundle käynnistetään
+        </section>
+
         <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
           ### Frontend - bundle
           
@@ -132,13 +142,14 @@
           import { BasicBundleInstance } from 'oskari-ui/BasicBundleInstance';
 
           class MyBundleInstance extends BasicBundleInstance {
-              start () {
+              start (sandbox) {
+                  super(sandbox);
                   console.log('Hello world')
               }
           }
           ```
         </section>
-        
+
         <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
           ### Frontend - perusteet
           
@@ -155,15 +166,43 @@
           ```
         </section>
 
+        <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+            <h4>Komponenttikirjasto</h4>
+            <img src="images/ui-komponentit.png" style="height: 12em; max-height:80%; border:0;" />
+        </section>
+
+      <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          <h4>Server</h4>
+          <img src="images/routes.png" style="height: 12em; max-height:80%; border:0;" />
+      </section>
+      <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          <h4>Palvelun alustus</h4>
+          <img src="images/flyway.png" style="height: 12em; max-height:80%; border:0;" />
+      </section>
+
       <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
         ### Tulossa
-        - Dokumentaation sisältö?
-        - Käyttäjän aineistojen yhdistäminen
-        - Java 8 -> 17
-        - Työpaja devaajille alkuvuodesta 2025
-        - Oskarin verkostopäivä toukokuu 2025
-        - Tilaajan ohje ja blogiartikkeleita Oskarista eri näkökulmista oskari.orgiin
+        - React migraation jatkaminen
+          - toolbar
+          - päänavigaatio
+        - Käyttäjän aineistojen yhdistäminen {`myfeatures`}
+          - omat paikat {`myplaces`}
+          - omat aineistot {`userlayer`}
+        - (Tason tietojen lataus)
       </section>
+      <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          <h4>Tason määrittely</h4>
+          <img src="images/myfeatures.png" style="height: 12em; max-height:80%; border:0;" />
+      </section>
+      <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          <h4>Tason ominaisuuksien määrittely</h4>
+          <img src="images/tasonmaarittely.png" style="height: 12em; max-height:80%; border:0;" />
+      </section>
+      <section data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
+          <h4>Aineistoeditori</h4>
+          <img src="images/content-editor.gif" style="height: 12em; max-height:80%; border:0;" />
+      </section>
+
       <section data-markdown data-background-position="78% 97%, 100% 165%" data-background-size="15%, 100% 50%">
       # Kiitos!
       - https://oskari.org
